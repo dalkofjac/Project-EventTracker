@@ -15,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.dk.eventtracker.adapters.BirthdaysAdapter;
+import com.dk.eventtracker.fragments.BirthdaysFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
 import com.dk.eventtracker.fragments.MainScreenFragment;
 
@@ -109,6 +111,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ft.commit();
 
         } else if (id == R.id.nav_birthday) {
+            BirthdaysFragment bf = new BirthdaysFragment();
+            FragmentTransaction ft = mFragmentManager.beginTransaction();
+            ft.replace(R.id.fragment_container, bf);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            ft.commit();
 
         } else if (id == R.id.nav_other) {
 
