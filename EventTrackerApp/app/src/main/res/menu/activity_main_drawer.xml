@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_start"
+            android:icon="@drawable/ic_menu_start"
+            android:title="Početna stranica" />
+        <item
+            android:id="@+id/nav_holiday"
+            android:icon="@drawable/ic_menu_holiday"
+            android:title="Blagdani" />
+        <item
+            android:id="@+id/nav_birthday"
+            android:icon="@drawable/ic_menu_birthday"
+            android:title="Rođendani" />
+        <item
+            android:id="@+id/nav_other"
+            android:icon="@drawable/ic_menu_other_events"
+            android:title="Ostali događaji" />
+    </group>
+
+    <item android:title="Aplikacija">
+        <menu>
+            <item
+                android:id="@+id/nav_about"
+                android:title="O aplikaciji" />
+        </menu>
+    </item>
+
+</menu>
