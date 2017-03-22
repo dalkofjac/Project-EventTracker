@@ -26,6 +26,6 @@ public class MainScreenFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Welcome");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Početna stranica");
     }
 }

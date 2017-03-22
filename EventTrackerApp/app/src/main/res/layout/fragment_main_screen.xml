@@ -24,9 +24,9 @@
             android:textSize="55dp" />
 
         <ImageView
-            android:layout_width="wrap_content"
             app:srcCompat="@drawable/logo_picture"
             android:id="@+id/imageView_main_logo"
+            android:layout_width="wrap_content"
             android:layout_height="200dp" />
     </LinearLayout>
 </LinearLayout>

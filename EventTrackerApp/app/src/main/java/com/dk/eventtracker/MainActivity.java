@@ -23,6 +23,7 @@ import com.dk.eventtracker.fragments.AboutAppFragment;
 import com.dk.eventtracker.fragments.BirthdaysFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
 import com.dk.eventtracker.fragments.MainScreenFragment;
+import com.dk.eventtracker.helpers.FragmentStarter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -67,11 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ButterKnife.bind(this);
 
         MainScreenFragment msf = new MainScreenFragment();
-        FragmentTransaction ft = mFragmentManager.beginTransaction();
-        ft.addToBackStack(null);
-        ft.replace(R.id.fragment_container, msf);
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        ft.commit();
+        FragmentStarter.StartNewFragment(msf, this, 2);
     }
 
     @Override
@@ -117,32 +114,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_start) {
             MainScreenFragment msf = new MainScreenFragment();
-            FragmentTransaction ft = mFragmentManager.beginTransaction();
-            ft.replace(R.id.fragment_container, msf);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            ft.commit();
+            mFragmentManager.popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            FragmentStarter.StartNewFragment(msf, this, 2);
         } else if (id == R.id.nav_holiday) {
             HolidaysFragment hf = new HolidaysFragment();
-            FragmentTransaction ft = mFragmentManager.beginTransaction();
-            ft.replace(R.id.fragment_container, hf);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            ft.commit();
+            FragmentStarter.StartNewFragment(hf, this, 1);
 
         } else if (id == R.id.nav_birthday) {
             BirthdaysFragment bf = new BirthdaysFragment();
-            FragmentTransaction ft = mFragmentManager.beginTransaction();
-            ft.replace(R.id.fragment_container, bf);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            ft.commit();
+            FragmentStarter.StartNewFragment(bf, this, 1);
 
         } else if (id == R.id.nav_other) {
 
         } else if (id == R.id.nav_about) {
             AboutAppFragment aaf = new AboutAppFragment();
-            FragmentTransaction ft = mFragmentManager.beginTransaction();
-            ft.replace(R.id.fragment_container, aaf);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            ft.commit();
+            FragmentStarter.StartNewFragment(aaf, this, 1);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
