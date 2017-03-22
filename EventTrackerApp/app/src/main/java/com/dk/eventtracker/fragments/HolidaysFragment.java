@@ -25,10 +25,6 @@ import butterknife.ButterKnife;
  */
 
 public class HolidaysFragment extends Fragment {
-    @BindView(R.id.textView_timer)
-    TextView textTimer;
-
-    private static final String FORMAT = "%02d:%02d:%02d";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -41,33 +37,5 @@ public class HolidaysFragment extends Fragment {
     public void onStart(){
         super.onStart();
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Blagdani");
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        sdf.setLenient(false);
-        try {
-            Date endDate = sdf.parse("25/12/2017");
-            Date startDate = new Date();
-
-            long diffInMs = endDate.getTime() - startDate.getTime();
-
-            new CountDownTimer(diffInMs, 1000) {
-
-                public void onTick(long millisUntilFinished) {
-
-                    textTimer.setText(""+String.format(FORMAT,
-                            TimeUnit.MILLISECONDS.toHours(millisUntilFinished),
-                            TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
-                                    TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
-                            TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
-                                    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
-                }
-
-                public void onFinish() {
-                    textTimer.setText("Upravo!!!");
-                }
-            }.start();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
     }
 }

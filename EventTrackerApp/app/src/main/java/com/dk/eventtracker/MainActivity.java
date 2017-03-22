@@ -2,9 +2,11 @@ package com.dk.eventtracker;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -41,7 +43,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, timeNow(), Snackbar.LENGTH_LONG)
+                        .setActionTextColor(Color.WHITE)
                         .setAction("Action", null).show();
+
             }
         });
 
@@ -133,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm - dd.MM.yyyy");
         sdf.setTimeZone(TimeZone.getTimeZone("GMT+1"));
         String currentDateAndTime = sdf.format(new Date());
-        outString = "Trenutno vrijeme: " + currentDateAndTime;
+        outString = "Sada je: " + currentDateAndTime;
         return outString;
     }
 

@@ -8,14 +8,16 @@ import java.util.Date;
 
 public class Event {
     int id;
+    int type; //type 1 = holiday, type 2 = birthday, type 3 = other
     String name;
     String date;
 
     public Event() {
     }
 
-    public Event(int id, String name, String date) {
+    public Event(int id, int type, String name, String date) {
         this.id = id;
+        this.type = type;
         this.name = name;
         this.date = date;
     }
@@ -26,6 +28,14 @@ public class Event {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public String getName() {
