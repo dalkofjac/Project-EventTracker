@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -18,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.dk.eventtracker.adapters.BirthdaysAdapter;
+import com.dk.eventtracker.fragments.AboutAppFragment;
 import com.dk.eventtracker.fragments.BirthdaysFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
 import com.dk.eventtracker.fragments.MainScreenFragment;
@@ -30,6 +32,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener {
     private FragmentManager mFragmentManager;
+    private DrawerLayout drawer;
+    private ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mFragmentManager = getFragmentManager();
+        mFragmentManager.addOnBackStackChangedListener(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -49,21 +56,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         ButterKnife.bind(this);
-        mFragmentManager = getFragmentManager();
-        mFragmentManager.addOnBackStackChangedListener(this);
 
         MainScreenFragment msf = new MainScreenFragment();
         FragmentTransaction ft = mFragmentManager.beginTransaction();
+        ft.addToBackStack(null);
         ft.replace(R.id.fragment_container, msf);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         ft.commit();
@@ -71,11 +76,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        int a = mFragmentManager.getBackStackEntryCount();
+        if (a>=2){
+            if(drawer.isDrawerOpen(GravityCompat.START)){
+                drawer.closeDrawer(GravityCompat.START);
+            }
+            else {
+                mFragmentManager.popBackStack();
+            }
         } else {
-            super.onBackPressed();
+            if (drawer.isDrawerOpen(GravityCompat.START)){
+                drawer.closeDrawer(GravityCompat.START);
+            }else {
+                this.finish();
+            }
         }
     }
 
@@ -124,7 +138,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_other) {
 
         } else if (id == R.id.nav_about) {
-
+            AboutAppFragment aaf = new AboutAppFragment();
+            FragmentTransaction ft = mFragmentManager.beginTransaction();
+            ft.replace(R.id.fragment_container, aaf);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -143,6 +161,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackStackChanged() {
-        super.onBackPressed();
+        //toggle.setDrawerIndicatorEnabled(mFragmentManager.getBackStackEntryCount()==1 || mFragmentManager.getBackStackEntryCount()==2);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(mFragmentManager.getBackStackEntryCount()>2);
+        toggle.syncState();
     }
 }

@@ -24,21 +24,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_bd_name"
+                android:id="@+id/textView_hd_name"
                 android:textAlignment="center"
-                tools:text="Osoba"
+                tools:text="Blagdan"
                 android:textColor="@color/colorPrimaryDark"
                 android:paddingTop="10dp"
                 android:textSize="35dp" />
 
             <TextView
-                android:text="@string/birthday_left"
+                android:text="@string/holiday_left"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_bd_2"
+                android:id="@+id/textView_hd_2"
                 android:textAlignment="center"
                 android:textSize="25dp"
-                android:textColor="@color/cardview_dark_background"
                 android:paddingTop="10dp" />
 
         </LinearLayout>
@@ -71,7 +70,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_days_bd"
+                android:id="@+id/textView_days_hd"
                 tools:text="345 dana"
                 android:textSize="50dp"
                 android:textColor="@color/colorAccent"
@@ -117,14 +116,14 @@
             <ImageView
                 android:layout_height="20dp"
                 app:srcCompat="@drawable/thin_line"
-                android:id="@+id/thin_line_1"
+                android:id="@+id/thin_line_4"
                 android:layout_gravity="center"
                 android:layout_width="match_parent" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView_timer_bd"
+                android:id="@+id/textView_timer_hd"
                 android:textAlignment="center"
                 android:textStyle="normal|bold"
                 tools:text="55:22:11"
@@ -140,5 +139,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent" />
         </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

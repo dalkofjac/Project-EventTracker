@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -35,7 +36,7 @@ public class TimerSetter {
                             TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(
                                     TimeUnit.MILLISECONDS.toHours(millisUntilFinished)),
                             TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
-                                    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                                    TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))) + " s");
                 }
 
                 public void onFinish() {
@@ -45,6 +46,27 @@ public class TimerSetter {
             }.start();
         } catch (ParseException e) {
             e.printStackTrace();
+        }
+    }
+    public long calculateDays(String eventDate){
+        long result = 0;
+        Date date = convertStringToDate(eventDate);
+        Calendar event = Calendar.getInstance();
+        event.setTime(date);
+
+        long msDiff = Calendar.getInstance().getTimeInMillis() - event.getTimeInMillis();
+        result = TimeUnit.MILLISECONDS.toDays(msDiff);
+
+        return result*(-1);
+    }
+    private Date convertStringToDate(String sDate){
+        SimpleDateFormat dateFormat;
+        dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date convertedDate = new Date();
+        try {
+            return convertedDate = dateFormat.parse(sDate);
+        }catch(ParseException e){
+            return null;
         }
     }
 }

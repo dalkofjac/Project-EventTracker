@@ -7,6 +7,18 @@
     <string name="action_settings">Postavke</string>
     <string name="app_mail">info@eventtracker.com</string>
     <string name="card_name">Datum:</string>
-    <string name="birthday_until">Do rođendana od</string>
-    <string name="birthday_left">preostalo je još:</string>
+    <string name="birthday_until">Do rođendana od osobe</string>
+    <string name="birthday_left">slavi rođendan za:</string>
+    <string name="holiday_until">Do blagdana pod imenom</string>
+    <string name="holiday_left">dolazi za:</string>
+    <string name="app_name_general">APLIKACIJA</string>
+    <string name="app_version_general">Verzija</string>
+    <string name="app_version">1.0.0</string>
+    <string name="app_author_general">Autor</string>
+    <string name="app_author">Dalibor K.</string>
+    <string name="app_project_general">Projekt</string>
+    <string name="app_project">Event Tracker App</string>
+    <string name="time_hd">SATI</string>
+    <string name="oror_hd">odnosno</string>
+    <string name="days_hd">DANA</string>
 </resources>

@@ -8,32 +8,29 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dk.database.Event;
 import com.dk.eventtracker.R;
-import com.dk.eventtracker.fragments.BirthdayDetailsFragment;
-import com.dk.eventtracker.fragments.HolidaysFragment;
-import com.squareup.picasso.Picasso;
+import com.dk.eventtracker.fragments.HolidayDetailsFragment;
 
 import java.util.List;
 
 /**
- * Created by Dalibor on 21.3.2017..
+ * Created by Dalibor on 22.3.2017..
  */
 
-public class BirthdaysAdapter extends RecyclerView.Adapter<BirthdaysAdapter.BirthdaysViewHolder> {
+public class HolidaysAdapter extends RecyclerView.Adapter<HolidaysAdapter.HolidaysViewHolder> {
     private List<Event> eventList;
     Context context;
 
-    public static class BirthdaysViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
+    public static class HolidaysViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
         public TextView name;
         public TextView date;
 
         private Context context;
 
-        public BirthdaysViewHolder(View view ,Context context) {
+        public HolidaysViewHolder(View view ,Context context) {
             super(view);
 
             this.context = context;
@@ -48,11 +45,11 @@ public class BirthdaysAdapter extends RecyclerView.Adapter<BirthdaysAdapter.Birt
             args.putString("EVENT_NAME",(String)name.getText());
             args.putString("EVENT_DATE",(String)date.getText());
 
-            BirthdayDetailsFragment bdf = new BirthdayDetailsFragment();
-            bdf.setArguments(args);
+            HolidayDetailsFragment hdf = new HolidayDetailsFragment();
+            hdf.setArguments(args);
             FragmentTransaction ft = ((Activity)context).getFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_container, hdf);
             ft.addToBackStack(null);
-            ft.replace(R.id.fragment_container, bdf);
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
             ft.commit();
 
@@ -64,19 +61,19 @@ public class BirthdaysAdapter extends RecyclerView.Adapter<BirthdaysAdapter.Birt
         }
     }
 
-    public BirthdaysAdapter(List<Event> eventList, Context context) {
+    public HolidaysAdapter(List<Event> eventList, Context context) {
         this.eventList = eventList;
         this.context = context;
     }
 
     @Override
-    public BirthdaysViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public HolidaysAdapter.HolidaysViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list_item,parent,false);
-        return new BirthdaysViewHolder(view, context);
+        return new HolidaysAdapter.HolidaysViewHolder(view, context);
     }
 
     @Override
-    public void onBindViewHolder(BirthdaysViewHolder holder, int position) {
+    public void onBindViewHolder(HolidaysAdapter.HolidaysViewHolder holder, int position) {
         Event event = eventList.get(position);
         holder.name.setText(event.getName());
         holder.date.setText(event.getDate());

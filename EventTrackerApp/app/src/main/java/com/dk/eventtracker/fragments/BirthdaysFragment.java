@@ -14,6 +14,7 @@ import com.dk.database.Event;
 import com.dk.eventtracker.R;
 import com.dk.eventtracker.adapters.BirthdaysAdapter;
 import com.dk.eventtracker.helpers.EventsData;
+import com.dk.eventtracker.logic.EventListSorter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ public class BirthdaysFragment extends Fragment {
     private List<Event> eventList = new ArrayList<>();
     private RecyclerView recyclerView;
     private BirthdaysAdapter mAdapter;
+    private EventListSorter els = new EventListSorter();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -43,13 +45,19 @@ public class BirthdaysFragment extends Fragment {
 
         recyclerView = (RecyclerView) getView().findViewById(R.id.main_recycler);
 
-        EventsData.getBirthdaysData(eventList);
+        if(eventList.isEmpty()) {
+            EventsData.getBirthdaysData(eventList);
+            els.attachYears(eventList);
+            els.sortTheList(eventList);
+        }
+
 
         mAdapter = new BirthdaysAdapter(eventList, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
+
         mAdapter.notifyDataSetChanged();
     }
 }

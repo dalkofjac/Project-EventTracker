@@ -18,14 +18,14 @@ import butterknife.ButterKnife;
  * Created by Dalibor on 22.3.2017..
  */
 
-public class BirthdayDetailsFragment extends Fragment {
-    @BindView(R.id.textView_bd_name)
+public class HolidayDetailsFragment extends Fragment {
+    @BindView(R.id.textView_hd_name)
     TextView textName;
 
-    @BindView(R.id.textView_timer_bd)
+    @BindView(R.id.textView_timer_hd)
     TextView textTimer;
 
-    @BindView(R.id.textView_days_bd)
+    @BindView(R.id.textView_days_hd)
     TextView textDays;
 
     TimerSetter timerSetter;
@@ -35,7 +35,7 @@ public class BirthdayDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_birthday_details,container,false);
+        View view = inflater.inflate(R.layout.fragment_holiday_details,container,false);
         ButterKnife.bind(this, view);
         timerSetter = new TimerSetter();
         eventName = getArguments().getString("EVENT_NAME");
@@ -46,7 +46,7 @@ public class BirthdayDetailsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Vrijeme do rođendana");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Vrijeme do blagdana");
 
         textName.setText(eventName);
         textDays.setText(""+ timerSetter.calculateDays(eventDate));
