@@ -1,16 +1,24 @@
 package com.dk.database;
 
-import java.util.Date;
+import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.PrimaryKey;
+import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
+import com.raizlabs.android.dbflow.structure.BaseModel;
+
+import java.util.List;
 
 /**
  * Created by Dalibor on 21.3.2017..
  */
 
-public class Event {
-    int id;
-    int type; //type 1 = holiday, type 2 = birthday, type 3 = other
-    String name;
-    String date;
+@Table(database = MainDatabase.class)
+public class Event extends BaseModel{
+    @PrimaryKey
+    @Column int id;
+    @Column int type; //type 1 = holiday, type 2 = birthday, type 3 = other
+    @Column String name;
+    @Column String date;
 
     public Event() {
     }
@@ -52,5 +60,21 @@ public class Event {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public static List<Event> getAll(){
+        return SQLite.select().from(Event.class).queryList();
+    }
+
+    public static Event getSpecific(int id) {
+        return SQLite.select().from(Event.class).where(Event_Table.id.eq(id)).querySingle();
+    }
+
+    public static List<Event> getAllHolidays(){
+        return SQLite.select().from(Event.class).where(Event_Table.type.eq(1)).queryList();
+    }
+
+    public static List<Event> getAllBirthdays(){
+        return SQLite.select().from(Event.class).where(Event_Table.type.eq(2)).queryList();
     }
 }

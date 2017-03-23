@@ -24,6 +24,8 @@ import com.dk.eventtracker.fragments.BirthdaysFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
 import com.dk.eventtracker.fragments.MainScreenFragment;
 import com.dk.eventtracker.helpers.FragmentStarter;
+import com.raizlabs.android.dbflow.config.FlowConfig;
+import com.raizlabs.android.dbflow.config.FlowManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         ButterKnife.bind(this);
+        FlowManager.init(new FlowConfig.Builder(this).build());
 
         MainScreenFragment msf = new MainScreenFragment();
         FragmentStarter.StartNewFragment(msf, this, 2);

@@ -13,11 +13,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dk.database.Event;
+import com.dk.database.Event_Table;
 import com.dk.eventtracker.R;
 import com.dk.eventtracker.adapters.BirthdaysAdapter;
 import com.dk.eventtracker.adapters.HolidaysAdapter;
 import com.dk.eventtracker.helpers.EventsData;
 import com.dk.eventtracker.logic.EventListSorter;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -57,11 +59,7 @@ public class HolidaysFragment extends Fragment {
 
         recyclerView = (RecyclerView) getView().findViewById(R.id.main_recycler_2);
 
-        if(eventList.isEmpty()) {
-            EventsData.getHolidaysData(eventList);
-            els.attachYears(eventList);
-            els.sortTheList(eventList);
-        }
+        requestData();
 
         mAdapter = new HolidaysAdapter(eventList, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -70,6 +68,17 @@ public class HolidaysFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
 
         mAdapter.notifyDataSetChanged();
+    }
+
+    public void requestData(){
+        if(SQLite.select().from(Event.class).where(Event_Table.type.eq(1)).queryList().isEmpty()){
+            EventsData.getHolidaysData(eventList);
+        }
+        else{
+            eventList = (ArrayList<Event>) Event.getAllHolidays();
+        }
+        els.attachYears(eventList);
+        els.sortTheList(eventList);
     }
 
 }

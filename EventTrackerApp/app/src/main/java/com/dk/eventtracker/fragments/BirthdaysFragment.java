@@ -11,10 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dk.database.Event;
+import com.dk.database.Event_Table;
 import com.dk.eventtracker.R;
 import com.dk.eventtracker.adapters.BirthdaysAdapter;
 import com.dk.eventtracker.helpers.EventsData;
 import com.dk.eventtracker.logic.EventListSorter;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,12 +47,7 @@ public class BirthdaysFragment extends Fragment {
 
         recyclerView = (RecyclerView) getView().findViewById(R.id.main_recycler);
 
-        if(eventList.isEmpty()) {
-            EventsData.getBirthdaysData(eventList);
-            els.attachYears(eventList);
-            els.sortTheList(eventList);
-        }
-
+        requestData();
 
         mAdapter = new BirthdaysAdapter(eventList, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -59,5 +56,16 @@ public class BirthdaysFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
 
         mAdapter.notifyDataSetChanged();
+    }
+
+    public void requestData(){
+        if(SQLite.select().from(Event.class).where(Event_Table.type.eq(2)).queryList().isEmpty()){
+            EventsData.getBirthdaysData(eventList);
+        }
+        else{
+            eventList = (ArrayList<Event>) Event.getAllBirthdays();
+        }
+        els.attachYears(eventList);
+        els.sortTheList(eventList);
     }
 }
