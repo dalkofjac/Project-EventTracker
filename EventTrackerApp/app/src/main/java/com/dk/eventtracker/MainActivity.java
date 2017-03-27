@@ -48,17 +48,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mFragmentManager = getFragmentManager();
         mFragmentManager.addOnBackStackChangedListener(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, timeNow(), Snackbar.LENGTH_LONG)
-                        .setActionTextColor(Color.WHITE)
-                        .setAction("Action", null).show();
-
-            }
-        });
-
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);

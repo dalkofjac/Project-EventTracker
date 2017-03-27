@@ -14,13 +14,19 @@ import java.util.List;
 
 @Table(database = MainDatabase.class)
 public class Event extends BaseModel{
-    @PrimaryKey
+    @PrimaryKey(autoincrement=true)
     @Column int id;
     @Column int type; //type 1 = holiday, type 2 = birthday, type 3 = other
     @Column String name;
     @Column String date;
 
     public Event() {
+    }
+
+    public Event(int type, String name, String date) {
+        this.type = type;
+        this.name = name;
+        this.date = date;
     }
 
     public Event(int id, int type, String name, String date) {

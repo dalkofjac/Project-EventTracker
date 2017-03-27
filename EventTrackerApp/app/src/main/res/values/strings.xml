@@ -21,4 +21,7 @@
     <string name="time_hd">SATI</string>
     <string name="oror_hd">odnosno</string>
     <string name="days_hd">DANA</string>
+    <string name="add_event">Dodaj</string>
+    <string name="date_general">Datum (npr. 05/10)</string>
+    <string name="name_general">Naziv</string>
 </resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutsHolder">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainLayout"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+            <ImageView
+                app:srcCompat="@drawable/logo_picture"
+                android:id="@+id/imageView_adding_logo"
+                android:layout_weight="1"
+                android:scaleType="fitStart"
+                android:layout_width="250dp"
+                android:layout_height="150dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/editLayout"
+                android:gravity="top"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editText_add_event_name"
+                    android:hint="@string/name_general"
+                    android:textSize="25sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:ems="10"
+                    android:id="@+id/editText_add_event_date"
+                    android:hint="@string/date_general"
+                    android:textSize="25sp"
+                    android:paddingTop="15dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/buttonLayout"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
+
+            <Button
+                android:text="@string/add_event"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_add_event"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:textColor="#fff"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

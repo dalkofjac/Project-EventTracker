@@ -1,0 +1,86 @@
+package com.dk.eventtracker.fragments;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.dk.database.Event;
+import com.dk.eventtracker.R;
+
+import java.util.regex.Pattern;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+/**
+ * Created by Dalibor on 27.3.2017..
+ */
+
+public class AddNewEventFragment extends Fragment {
+    private int eventType;
+
+    @BindView(R.id.editText_add_event_name)
+    EditText newEventName;
+
+    @BindView(R.id.editText_add_event_date)
+    EditText newEventDate;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View view = inflater.inflate(R.layout.fragment_add_new_event,container,false);
+        ButterKnife.bind(this, view);
+
+        eventType = getArguments().getInt("EVENT_TYPE");
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        if(eventType == 1) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dodaj blagdan");
+        }
+        else if (eventType == 2) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dodaj rođendan");
+        }
+        else{
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dodaj događaj");
+        }
+    }
+
+    @OnClick(R.id.button_add_event)
+    public void AddEventButtonPressed(){
+        String eventName = newEventName.getText().toString();
+        String eventDate = newEventDate.getText().toString();
+
+        if (eventType == 1 && dateCheck(eventDate) == true) {
+            Event event = new Event(1, eventName, eventDate);
+            event.save();
+            getActivity().onBackPressed();
+
+            Toast.makeText(getActivity(), "Uspješno dodan blagdan", Toast.LENGTH_SHORT).show();
+        }
+        if (eventType == 2 && dateCheck(eventDate) == true) {
+            Event event = new Event(2, eventName, eventDate);
+            event.save();
+            getActivity().onBackPressed();
+
+            Toast.makeText(getActivity(), "Uspješno dodan rođendan", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private boolean dateCheck(String date){
+        if(Pattern.matches("[a-zA-Z]+", date) == false && date.length() > 5){
+            Toast.makeText(getActivity(), "Krivi format datuma! (dd/mm)", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
+}

@@ -14,40 +14,77 @@ import java.util.List;
 public class EventsData {
 
     public static void getHolidaysData(List<Event> eventList) {
-        Event event = new Event(1, 1, "Božić", "25/12");
+        Event event = new Event(1, "Nova godina", "01/01");
         eventList.add(event);
         event.save();
 
-        event = new Event(2, 1, "Nova godina", "01/01");
+        event = new Event(1, "Sveta tri kralja", "06/01");
         eventList.add(event);
         event.save();
 
-        event = new Event(3, 1, "Uskrs", "16/04");
+        event = new Event(1, "Uskrs", "16/04");
         eventList.add(event);
         event.save();
-        event = new Event(4, 1, "Sveta tri kralja", "06/01");
+
+        event = new Event(1, "Uskršnji ponedjeljak", "17/04");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Praznik rada", "01/05");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Tjelovo", "15/06");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Dan antifašističke borbe", "22/06");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Dan državnosti", "25/06");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Dan domovinske zahvalnosti", "05/08");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Velika Gospa", "15/08");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Dan neovisnosti", "08/10");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Dan svih svetih", "01/11");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Božić", "25/12");
         eventList.add(event);
         event.save();
     }
 
     public static void getBirthdaysData(List<Event> eventList) {
-        Event event = new Event(5, 2, "Mama", "25/11");
+        Event event = new Event(2, "Mama", "25/11");
         eventList.add(event);
         event.save();
 
-        event = new Event(6, 2, "Ja", "16/07");
+        event = new Event(2, "Ja", "16/07");
         eventList.add(event);
         event.save();
 
-        event = new Event(7, 2, "Tata", "07/06");
+        event = new Event(2, "Tata", "07/06");
         eventList.add(event);
         event.save();
 
-        event = new Event(8, 2, "Dajana", "22/10");
+        event = new Event(2, "Dajana", "22/10");
         eventList.add(event);
         event.save();
 
-        event = new Event(9, 2, "Ronaldinho", "21/03");
+        event = new Event(2, "Ronaldinho", "21/03");
         eventList.add(event);
         event.save();
     }
