@@ -67,7 +67,7 @@ public class HolidaysFragment extends Fragment {
                 AddNewEventFragment anef = new AddNewEventFragment();
                 anef.setArguments(args);
 
-                FragmentStarter.StartNewFragment(anef, getActivity(), 3);
+                FragmentStarter.StartNewFragment(anef, getActivity(), 2);
             }
         });
 

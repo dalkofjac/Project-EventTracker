@@ -61,24 +61,38 @@ public class AddNewEventFragment extends Fragment {
         String eventName = newEventName.getText().toString();
         String eventDate = newEventDate.getText().toString();
 
-        if (eventType == 1 && dateCheck(eventDate) == true) {
-            Event event = new Event(1, eventName, eventDate);
-            event.save();
-            getActivity().onBackPressed();
+        try {
+            if (eventType == 1 && dateCheck(eventDate) == true) {
+                Event event = new Event(1, eventName, eventDate);
+                event.save();
+                getActivity().onBackPressed();
 
-            Toast.makeText(getActivity(), "Uspješno dodan blagdan", Toast.LENGTH_SHORT).show();
-        }
-        if (eventType == 2 && dateCheck(eventDate) == true) {
-            Event event = new Event(2, eventName, eventDate);
-            event.save();
-            getActivity().onBackPressed();
+                Toast.makeText(getActivity(), "Uspješno dodan blagdan", Toast.LENGTH_SHORT).show();
+            }
+            if (eventType == 2 && dateCheck(eventDate) == true) {
+                Event event = new Event(2, eventName, eventDate);
+                event.save();
+                getActivity().onBackPressed();
 
-            Toast.makeText(getActivity(), "Uspješno dodan rođendan", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Uspješno dodan rođendan", Toast.LENGTH_SHORT).show();
+            }
+        }catch (Exception e){
+            Toast.makeText(getActivity(), "Nevaljan unos!", Toast.LENGTH_SHORT).show();
         }
     }
     private boolean dateCheck(String date){
-        if(Pattern.matches("[a-zA-Z]+", date) == false && date.length() > 5){
+        String days = "";
+        String months = "";
+        days = date.substring(0, date.indexOf("/"));
+        months = date.substring(date.indexOf("/")+1);
+
+        if(date.length() > 5){
             Toast.makeText(getActivity(), "Krivi format datuma! (dd/mm)", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if(Integer.parseInt(days)>31 || Integer.parseInt(months)>12){
+            Toast.makeText(getActivity(), "Nepostojeći datum!", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

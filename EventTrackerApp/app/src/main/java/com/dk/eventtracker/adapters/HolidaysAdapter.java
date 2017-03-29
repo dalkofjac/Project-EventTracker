@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.dk.database.Event;
 import com.dk.eventtracker.R;
 import com.dk.eventtracker.fragments.HolidayDetailsFragment;
+import com.dk.eventtracker.helpers.FragmentStarter;
 
 import java.util.List;
 
@@ -47,11 +48,7 @@ public class HolidaysAdapter extends RecyclerView.Adapter<HolidaysAdapter.Holida
 
             HolidayDetailsFragment hdf = new HolidayDetailsFragment();
             hdf.setArguments(args);
-            FragmentTransaction ft = ((Activity)context).getFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container, hdf);
-            ft.addToBackStack(null);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            ft.commit();
+            FragmentStarter.StartNewFragment(hdf, ((Activity)context), 2);
 
         }
 

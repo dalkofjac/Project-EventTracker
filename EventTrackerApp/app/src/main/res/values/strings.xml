@@ -24,4 +24,11 @@
     <string name="add_event">Dodaj</string>
     <string name="date_general">Datum (npr. 05/10)</string>
     <string name="name_general">Naziv</string>
+    <string name="drawer_main">Početna stranica</string>
+    <string name="drawer_holidays">Blagdani</string>
+    <string name="drawer_birthdays">Rođendani</string>
+    <string name="drawer_other">Ostali događaji</string>
+    <string name="action_about">O aplikaciji</string>
+    <string name="drawer_login">Prijava</string>
+    <string name="drawer_user_op">Korisničke opcije</string>
 </resources>

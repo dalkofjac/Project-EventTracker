@@ -15,6 +15,7 @@ import com.dk.database.Event;
 import com.dk.eventtracker.R;
 import com.dk.eventtracker.fragments.BirthdayDetailsFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
+import com.dk.eventtracker.helpers.FragmentStarter;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -50,12 +51,7 @@ public class BirthdaysAdapter extends RecyclerView.Adapter<BirthdaysAdapter.Birt
 
             BirthdayDetailsFragment bdf = new BirthdayDetailsFragment();
             bdf.setArguments(args);
-            FragmentTransaction ft = ((Activity)context).getFragmentManager().beginTransaction();
-            ft.addToBackStack(null);
-            ft.replace(R.id.fragment_container, bdf);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            ft.commit();
-
+            FragmentStarter.StartNewFragment(bdf, ((Activity)context), 2);
         }
 
         @Override

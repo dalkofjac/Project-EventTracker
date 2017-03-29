@@ -53,6 +53,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getFragmentManager().getBackStackEntryCount()==1){
+                    drawer.openDrawer(GravityCompat.START);
+                }else if(getFragmentManager().getBackStackEntryCount()==2){
+                    drawer.openDrawer(GravityCompat.START);
+                }
+                else {
+                    onBackPressed();
+                }
+            }
+        });
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -60,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FlowManager.init(new FlowConfig.Builder(this).build());
 
         MainScreenFragment msf = new MainScreenFragment();
-        FragmentStarter.StartNewFragment(msf, this, 2);
+        FragmentStarter.StartNewFragment(msf, this, 0);
     }
 
     @Override
@@ -95,6 +109,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.action_settings) {
             return true;
         }
+        else if(id == R.id.action_about){
+            AboutAppFragment aaf = new AboutAppFragment();
+            FragmentStarter.StartNewFragment(aaf, this, 1);
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -107,7 +125,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_start) {
             MainScreenFragment msf = new MainScreenFragment();
             mFragmentManager.popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            FragmentStarter.StartNewFragment(msf, this, 2);
+            FragmentStarter.StartNewFragment(msf, this, 0);
+
         } else if (id == R.id.nav_holiday) {
             HolidaysFragment hf = new HolidaysFragment();
             FragmentStarter.StartNewFragment(hf, this, 1);
@@ -118,9 +137,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.nav_other) {
 
-        } else if (id == R.id.nav_about) {
-            AboutAppFragment aaf = new AboutAppFragment();
-            FragmentStarter.StartNewFragment(aaf, this, 1);
+        } else if (id == R.id.nav_login) {
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -128,19 +146,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    public String timeNow() {
-        String outString;
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm - dd.MM.yyyy");
-        sdf.setTimeZone(TimeZone.getTimeZone("GMT+1"));
-        String currentDateAndTime = sdf.format(new Date());
-        outString = "Sada je: " + currentDateAndTime;
-        return outString;
-    }
-
     @Override
     public void onBackStackChanged() {
-        //toggle.setDrawerIndicatorEnabled(mFragmentManager.getBackStackEntryCount()==1 || mFragmentManager.getBackStackEntryCount()==2);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(mFragmentManager.getBackStackEntryCount()>2);
+        toggle.setDrawerIndicatorEnabled(mFragmentManager.getBackStackEntryCount()==1 || mFragmentManager.getBackStackEntryCount()==2);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(mFragmentManager.getBackStackEntryCount()>2);
         toggle.syncState();
     }
 }
