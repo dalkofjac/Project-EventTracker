@@ -22,6 +22,9 @@ public class HolidayDetailsFragment extends Fragment {
     @BindView(R.id.textView_hd_name)
     TextView textName;
 
+    @BindView(R.id.textView_hd_date)
+    TextView textDate;
+
     @BindView(R.id.textView_timer_hd)
     TextView textTimer;
 
@@ -49,6 +52,7 @@ public class HolidayDetailsFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Vrijeme do blagdana");
 
         textName.setText(eventName);
+        textDate.setText(eventDate);
         textDays.setText(""+ timerSetter.calculateDays(eventDate));
         timerSetter.setTimer(eventDate, textTimer);
     }

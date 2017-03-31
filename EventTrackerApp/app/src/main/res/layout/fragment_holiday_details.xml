@@ -32,6 +32,16 @@
                 android:textSize="35dp" />
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_hd_date"
+                android:textAlignment="center"
+                tools:text="20.03.2017."
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp"
+                android:paddingTop="3dp" />
+
+            <TextView
                 android:text="@string/holiday_left"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

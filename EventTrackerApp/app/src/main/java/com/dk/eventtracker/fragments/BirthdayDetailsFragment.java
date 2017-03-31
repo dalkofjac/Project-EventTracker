@@ -22,6 +22,9 @@ public class BirthdayDetailsFragment extends Fragment {
     @BindView(R.id.textView_bd_name)
     TextView textName;
 
+    @BindView(R.id.textView_bd_date)
+    TextView textDate;
+
     @BindView(R.id.textView_timer_bd)
     TextView textTimer;
 
@@ -49,6 +52,7 @@ public class BirthdayDetailsFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Vrijeme do rođendana");
 
         textName.setText(eventName);
+        textDate.setText(eventDate);
         textDays.setText(""+ timerSetter.calculateDays(eventDate));
         timerSetter.setTimer(eventDate, textTimer);
     }

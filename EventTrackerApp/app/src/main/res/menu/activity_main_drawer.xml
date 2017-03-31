@@ -7,6 +7,10 @@
             android:icon="@drawable/ic_menu_start"
             android:title="@string/drawer_main" />
         <item
+            android:id="@+id/nav_upcoming"
+            android:icon="@drawable/ic_menu_upcoming"
+            android:title="@string/drawer_upcoming" />
+        <item
             android:id="@+id/nav_holiday"
             android:icon="@drawable/ic_menu_holiday"
             android:title="@string/drawer_holidays" />

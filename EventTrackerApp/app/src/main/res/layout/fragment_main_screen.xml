@@ -7,26 +7,91 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/layoutsHolder"
         android:gravity="center">
 
-        <TextView
-            android:text="Dobrodošli!"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView_hello"
-            android:textAlignment="center"
-            android:textStyle="normal|bold"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:textSize="55dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            app:srcCompat="@drawable/logo_pic_small"
+            android:id="@+id/imageView_ms_logo"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:layout_height="175dp" />
 
         <ImageView
-            app:srcCompat="@drawable/logo_picture"
-            android:id="@+id/imageView_main_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp" />
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/thin_line"
+            android:id="@+id/thin_line_1"
+            android:layout_gravity="center"
+            android:layout_width="match_parent" />
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonsLayout"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/firstRowLayout">
+
+                <Button
+                    android:text="@string/ms_upcoming"
+                    android:id="@+id/button_ms_upcoming"
+                    android:layout_weight="1"
+                    style="@android:style/Widget.Holo.Button.Inset"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textStyle="normal|bold|italic"
+                    android:layout_width="50dp"
+                    android:layout_height="120dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/secondRowLayout">
+
+                <Button
+                    android:text="@string/drawer_holidays"
+                    android:id="@+id/button_ms_holiday"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textStyle="normal|bold|italic"
+                    style="@android:style/Widget.Holo.Button.Inset"
+                    android:layout_height="120dp"
+                    android:layout_width="50dp" />
+
+                <Button
+                    android:text="@string/drawer_birthdays"
+                    android:id="@+id/button_ms_birthday"
+                    android:layout_weight="1"
+                    style="@android:style/Widget.Holo.Button.Inset"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textStyle="normal|bold|italic"
+                    android:layout_height="120dp"
+                    android:layout_width="50dp" />
+
+                <Button
+                    android:text="@string/other_general"
+                    android:id="@+id/button_ms_other"
+                    android:layout_weight="1"
+                    style="@android:style/Widget.Holo.Button.Inset"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textStyle="normal|bold|italic"
+                    android:layout_height="120dp"
+                    android:layout_width="50dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>

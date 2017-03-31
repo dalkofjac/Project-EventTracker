@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dk.eventtracker.R;
+import com.dk.eventtracker.helpers.FragmentStarter;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Dalibor on 20.3.2017..
@@ -26,6 +28,22 @@ public class MainScreenFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Početna stranica");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Početna");
+    }
+
+    @OnClick(R.id.button_ms_holiday)
+    public void onButtonMsHolidayClicked(){
+        HolidaysFragment hf = new HolidaysFragment();
+        FragmentStarter.StartNewFragment(hf, getActivity(), 1);
+    }
+
+    @OnClick(R.id.button_ms_birthday)
+    public void onButtonMsBirthdayClicked(){
+        BirthdaysFragment bf = new BirthdaysFragment();
+        FragmentStarter.StartNewFragment(bf, getActivity(), 1);
+    }
+
+    @OnClick(R.id.button_ms_upcoming)
+    public void onButtonMsUpcomingClicked(){
     }
 }
