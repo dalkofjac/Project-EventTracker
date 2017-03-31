@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dk.eventtracker.R;
+import com.dk.eventtracker.adapters.UpcomingEventsAdapter;
 import com.dk.eventtracker.helpers.FragmentStarter;
 
 import butterknife.ButterKnife;
@@ -45,5 +46,7 @@ public class MainScreenFragment extends Fragment {
 
     @OnClick(R.id.button_ms_upcoming)
     public void onButtonMsUpcomingClicked(){
+        UpcomingEventsFragment aef = new UpcomingEventsFragment();
+        FragmentStarter.StartNewFragment(aef, getActivity(), 1);
     }
 }

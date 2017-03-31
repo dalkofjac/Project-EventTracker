@@ -23,6 +23,7 @@ import com.dk.eventtracker.fragments.AboutAppFragment;
 import com.dk.eventtracker.fragments.BirthdaysFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
 import com.dk.eventtracker.fragments.MainScreenFragment;
+import com.dk.eventtracker.fragments.UpcomingEventsFragment;
 import com.dk.eventtracker.helpers.FragmentStarter;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
@@ -134,6 +135,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_birthday) {
             BirthdaysFragment bf = new BirthdaysFragment();
             FragmentStarter.StartNewFragment(bf, this, 1);
+
+        } else if (id == R.id.nav_upcoming) {
+            UpcomingEventsFragment aef = new UpcomingEventsFragment();
+            FragmentStarter.StartNewFragment(aef, this, 1);
 
         } else if (id == R.id.nav_other) {
 
