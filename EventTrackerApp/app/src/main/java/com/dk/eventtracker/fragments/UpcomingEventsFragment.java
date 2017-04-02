@@ -44,7 +44,7 @@ public class UpcomingEventsFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Nadolazeće");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Uskoro");
         recyclerView = (RecyclerView) getView().findViewById(R.id.main_recycler_3);
 
         requestData();

@@ -57,7 +57,7 @@ public class TimerSetter {
         long msDiff = Calendar.getInstance().getTimeInMillis() - event.getTimeInMillis();
         result = TimeUnit.MILLISECONDS.toDays(msDiff);
 
-        return result*(-1);
+        return (result*(-1))+1;
     }
     private Date convertStringToDate(String sDate){
         SimpleDateFormat dateFormat;

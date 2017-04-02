@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.dk.eventtracker.R;
 import com.dk.eventtracker.adapters.UpcomingEventsAdapter;
@@ -29,7 +30,7 @@ public class MainScreenFragment extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Početna");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Event Tracker");
     }
 
     @OnClick(R.id.button_ms_holiday)
@@ -48,5 +49,10 @@ public class MainScreenFragment extends Fragment {
     public void onButtonMsUpcomingClicked(){
         UpcomingEventsFragment aef = new UpcomingEventsFragment();
         FragmentStarter.StartNewFragment(aef, getActivity(), 1);
+    }
+
+    @OnClick(R.id.button_ms_other)
+    public void onButtonMsOtherClicked(){
+        // #TODO Napraviti cijelu funk. "other"
     }
 }

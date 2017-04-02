@@ -31,7 +31,12 @@
     <string name="action_about">O aplikaciji</string>
     <string name="drawer_login">Prijava</string>
     <string name="drawer_user_op">Korisničke opcije</string>
-    <string name="drawer_upcoming">Nadolazeće</string>
+    <string name="drawer_upcoming">Uskoro</string>
     <string name="other_general">Ostalo</string>
-    <string name="ms_upcoming">Nadolazeći događaji</string>
+    <string name="ms_upcoming">Uskoro</string>
+    <string name="removal_question">Želite li uistinu obrisati događaj?</string>
+    <string name="remove">Obriši</string>
+    <string name="cancel">Odustani</string>
+    <string name="delete_birthday">Obriši rođendan</string>
+    <string name="delete_holiday">Obriši blagdan</string>
 </resources>

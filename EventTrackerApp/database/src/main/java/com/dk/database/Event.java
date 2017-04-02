@@ -76,6 +76,10 @@ public class Event extends BaseModel{
         return SQLite.select().from(Event.class).where(Event_Table.id.eq(id)).querySingle();
     }
 
+    public static Event getSpecificByName(String name){
+        return SQLite.select().from(Event.class).where(Event_Table.name.eq(name)).querySingle();
+    }
+
     public static List<Event> getAllHolidays(){
         return SQLite.select().from(Event.class).where(Event_Table.type.eq(1)).queryList();
     }

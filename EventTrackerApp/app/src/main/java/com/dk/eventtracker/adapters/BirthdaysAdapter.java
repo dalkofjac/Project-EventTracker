@@ -55,9 +55,7 @@ public class BirthdaysAdapter extends RecyclerView.Adapter<BirthdaysAdapter.Birt
         }
 
         @Override
-        public boolean onLongClick(View v) {
-            return false;
-        }
+        public boolean onLongClick(View v) { return false; }
     }
 
     public BirthdaysAdapter(List<Event> eventList, Context context) {

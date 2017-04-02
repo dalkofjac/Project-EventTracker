@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.dk.eventtracker.adapters.BirthdaysAdapter;
 import com.dk.eventtracker.fragments.AboutAppFragment;
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            // #TODO Napraviti "postavke" i OnClick na "postavke" - u postavkama reset podataka
             return true;
         }
         else if(id == R.id.action_about){
@@ -141,14 +143,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             FragmentStarter.StartNewFragment(aef, this, 1);
 
         } else if (id == R.id.nav_other) {
+            // #TODO OnClick na "other"
 
         } else if (id == R.id.nav_login) {
+            // #TODO Napraviti "login" i OnClick na "login"
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return false;
     }
 
     @Override

@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.dk.database.Event;
 import com.dk.eventtracker.R;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import butterknife.BindView;
@@ -62,14 +64,14 @@ public class AddNewEventFragment extends Fragment {
         String eventDate = newEventDate.getText().toString();
 
         try {
-            if (eventType == 1 && dateCheck(eventDate) == true) {
+            if (eventType == 1 && dateCheck(eventDate) == true && availableNameCheck(eventName) == true) {
                 Event event = new Event(1, eventName, eventDate);
                 event.save();
                 getActivity().onBackPressed();
 
                 Toast.makeText(getActivity(), "Uspješno dodan blagdan", Toast.LENGTH_SHORT).show();
             }
-            if (eventType == 2 && dateCheck(eventDate) == true) {
+            if (eventType == 2 && dateCheck(eventDate) == true && availableNameCheck(eventName) == true) {
                 Event event = new Event(2, eventName, eventDate);
                 event.save();
                 getActivity().onBackPressed();
@@ -94,6 +96,16 @@ public class AddNewEventFragment extends Fragment {
         if(Integer.parseInt(days)>31 || Integer.parseInt(months)>12){
             Toast.makeText(getActivity(), "Nepostojeći datum!", Toast.LENGTH_LONG).show();
             return false;
+        }
+        return true;
+    }
+    private boolean availableNameCheck(String name){
+        List<Event> eventList = Event.getAll();
+        for(int i=0;i<eventList.size(); i++){
+            if(eventList.get(i).getName().matches(name)){
+                Toast.makeText(getActivity(), "Naziv već postoji!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
         }
         return true;
     }

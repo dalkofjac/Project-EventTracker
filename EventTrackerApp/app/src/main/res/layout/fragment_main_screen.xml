@@ -7,17 +7,17 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/layoutsHolder"
         android:gravity="center">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             app:srcCompat="@drawable/logo_pic_small"
-            android:id="@+id/imageView_ms_logo"
+            android:id="@+id/ImageView_ms_logo"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:layout_height="175dp" />
+            android:layout_height="75dp" />
 
         <ImageView
             android:layout_height="20dp"
@@ -53,14 +53,6 @@
                     android:textColor="#fff"
                     android:background="@color/colorPrimary" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/secondRowLayout">
-
                 <Button
                     android:text="@string/drawer_holidays"
                     android:id="@+id/button_ms_holiday"
@@ -71,7 +63,15 @@
                     android:layout_width="50dp"
                     android:textColor="#fff"
                     android:background="@color/colorPrimary"
-                    android:layout_marginRight="5dp" />
+                    android:layout_marginLeft="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/secondRowLayout">
 
                 <Button
                     android:text="@string/drawer_birthdays"
@@ -98,6 +98,13 @@
 
             </LinearLayout>
         </LinearLayout>
+
+        <ImageView
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/thin_line"
+            android:id="@+id/thin_line_2"
+            android:layout_gravity="center"
+            android:layout_width="match_parent" />
 
     </LinearLayout>
 

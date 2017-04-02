@@ -127,7 +127,7 @@
             <ImageView
                 android:layout_height="20dp"
                 app:srcCompat="@drawable/thin_line"
-                android:id="@+id/thin_line_1"
+                android:id="@+id/thin_line_4"
                 android:layout_gravity="center"
                 android:layout_width="match_parent" />
 
@@ -150,5 +150,29 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent" />
         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteLayout"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="right"
+            android:layout_marginTop="5dp">
+
+            <Button
+                android:text="@string/delete_birthday"
+                android:id="@+id/button_bd_del"
+                android:elevation="0dp"
+                android:background="@color/colorAccent"
+                android:textColor="#fff"
+                android:layout_width="140dp"
+                android:fontFamily="sans-serif-medium"
+                style="@android:style/Widget.Button"
+                android:textSize="12dp"
+                android:layout_height="25dp" />
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>
