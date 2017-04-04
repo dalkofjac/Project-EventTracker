@@ -53,6 +53,7 @@ public class MainScreenFragment extends Fragment {
 
     @OnClick(R.id.button_ms_other)
     public void onButtonMsOtherClicked(){
-        // #TODO Napraviti cijelu funk. "other"
+        OtherEventsFragment oef = new OtherEventsFragment();
+        FragmentStarter.StartNewFragment(oef, getActivity(), 1);
     }
 }

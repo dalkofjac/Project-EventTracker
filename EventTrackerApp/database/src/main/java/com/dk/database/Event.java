@@ -87,4 +87,7 @@ public class Event extends BaseModel{
     public static List<Event> getAllBirthdays(){
         return SQLite.select().from(Event.class).where(Event_Table.type.eq(2)).queryList();
     }
+    public static List<Event> getAllOtherEvents(){
+        return SQLite.select().from(Event.class).where(Event_Table.type.eq(3)).queryList();
+    }
 }

@@ -22,6 +22,14 @@ public class EventsData {
         eventList.add(event);
         event.save();
 
+        event = new Event(1, "Valentinovo", "14/02");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Dan žena", "08/03");
+        eventList.add(event);
+        event.save();
+
         event = new Event(1, "Uskrs", "16/04");
         eventList.add(event);
         event.save();
@@ -58,11 +66,19 @@ public class EventsData {
         eventList.add(event);
         event.save();
 
+        event = new Event(1, "Noć vještica", "31/10");
+        eventList.add(event);
+        event.save();
+
         event = new Event(1, "Dan svih svetih", "01/11");
         eventList.add(event);
         event.save();
 
         event = new Event(1, "Božić", "25/12");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(1, "Sveti Stjepan", "26/12");
         eventList.add(event);
         event.save();
     }
@@ -85,6 +101,15 @@ public class EventsData {
         event.save();
 
         event = new Event(2, "Ronaldinho", "21/03");
+        eventList.add(event);
+        event.save();
+
+        event = new Event(2, "Lionel Messi", "24/06");
+        eventList.add(event);
+        event.save();
+    }
+    public static void getOtherEventsData(List<Event> eventList){
+        Event event = new Event(3, "Finale lige prvaka 2017", "03/06");
         eventList.add(event);
         event.save();
     }

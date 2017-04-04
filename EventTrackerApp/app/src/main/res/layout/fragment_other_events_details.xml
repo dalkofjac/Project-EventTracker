@@ -30,9 +30,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView_hd_name"
+                    android:id="@+id/textView_oe_name"
                     android:textAlignment="center"
-                    tools:text="Blagdan"
+                    tools:text="Događaj"
                     android:textColor="@color/colorPrimaryDark"
                     android:paddingTop="10dp"
                     android:textSize="30dp" />
@@ -40,7 +40,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView_hd_date"
+                    android:id="@+id/textView_oe_date"
                     android:textAlignment="center"
                     tools:text="20.03.2017."
                     android:textColor="@color/colorPrimary"
@@ -48,12 +48,13 @@
                     android:paddingTop="3dp" />
 
                 <TextView
-                    android:text="@string/holiday_left"
+                    android:text="@string/other_events_left"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView_hd_2"
+                    android:id="@+id/textView_oe_2"
                     android:textAlignment="center"
                     android:textSize="25dp"
+                    android:textColor="?android:attr/textColorTertiary"
                     android:paddingTop="10dp" />
 
             </LinearLayout>
@@ -71,7 +72,7 @@
                     android:text="@string/days_hd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView_days_g_hd"
+                    android:id="@+id/textView_days_g_oe"
                     android:textSize="15dp"
                     android:textColor="@color/colorAccent"
                     android:textStyle="normal|bold" />
@@ -86,7 +87,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView_days_hd"
+                    android:id="@+id/textView_days_oe"
                     tools:text="345 dana"
                     android:textSize="50dp"
                     android:textColor="@color/colorAccent"
@@ -105,7 +106,7 @@
                     android:text="@string/oror_hd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView_hd_3"
+                    android:id="@+id/textView_oe_3"
                     android:textSize="25dp"
                     android:textAlignment="center"
                     android:layout_marginTop="10dp" />
@@ -124,7 +125,7 @@
                     android:text="@string/time_hd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView_hours_g_hd"
+                    android:id="@+id/textView_hours_g_oe"
                     android:textSize="15dp"
                     android:textColor="@color/colorAccent"
                     android:textStyle="normal|bold" />
@@ -139,7 +140,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView_timer_hd"
+                    android:id="@+id/textView_timer_oe"
                     android:textAlignment="center"
                     android:textStyle="normal|bold"
                     tools:text="55:22:11"
@@ -155,6 +156,7 @@
                     android:layout_gravity="center"
                     android:layout_width="match_parent" />
             </LinearLayout>
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -167,8 +169,8 @@
                 android:layout_marginBottom="15dp">
 
                 <Button
-                    android:text="@string/delete_holiday"
-                    android:id="@+id/button_hd_del"
+                    android:text="@string/delete_birthday"
+                    android:id="@+id/button_oe_del"
                     android:elevation="0dp"
                     android:background="@color/colorAccent"
                     android:textColor="#fff"

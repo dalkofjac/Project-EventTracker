@@ -24,6 +24,7 @@ import com.dk.eventtracker.fragments.AboutAppFragment;
 import com.dk.eventtracker.fragments.BirthdaysFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
 import com.dk.eventtracker.fragments.MainScreenFragment;
+import com.dk.eventtracker.fragments.OtherEventsFragment;
 import com.dk.eventtracker.fragments.UpcomingEventsFragment;
 import com.dk.eventtracker.helpers.FragmentStarter;
 import com.raizlabs.android.dbflow.config.FlowConfig;
@@ -110,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.action_settings) {
             // #TODO Napraviti "postavke" i OnClick na "postavke" - u postavkama reset podataka
+            // #TODO Napraviti i u postavkama omoguciti visejezicnost
             return true;
         }
         else if(id == R.id.action_about){
@@ -143,13 +145,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             FragmentStarter.StartNewFragment(aef, this, 1);
 
         } else if (id == R.id.nav_other) {
-            // #TODO OnClick na "other"
+            OtherEventsFragment oef = new OtherEventsFragment();
+            FragmentStarter.StartNewFragment(oef, this, 1);
 
         } else if (id == R.id.nav_login) {
             // #TODO Napraviti "login" i OnClick na "login"
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return false;

@@ -13,6 +13,8 @@ import com.dk.database.Event;
 import com.dk.eventtracker.R;
 import com.dk.eventtracker.fragments.BirthdayDetailsFragment;
 import com.dk.eventtracker.fragments.HolidayDetailsFragment;
+import com.dk.eventtracker.fragments.OtherEventsDetailsFragment;
+import com.dk.eventtracker.fragments.OtherEventsFragment;
 import com.dk.eventtracker.helpers.FragmentStarter;
 
 import org.w3c.dom.Text;
@@ -58,6 +60,11 @@ public class UpcomingEventsAdapter extends RecyclerView.Adapter<UpcomingEventsAd
                 BirthdayDetailsFragment bdf = new BirthdayDetailsFragment();
                 bdf.setArguments(args);
                 FragmentStarter.StartNewFragment(bdf, ((Activity)context), 2);
+            }
+            else if(getEventType((String)name.getText()) == 3){
+                OtherEventsDetailsFragment oedf = new OtherEventsDetailsFragment();
+                oedf.setArguments(args);
+                FragmentStarter.StartNewFragment(oedf, ((Activity) context), 2);
             }
 
         }

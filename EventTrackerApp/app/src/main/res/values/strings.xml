@@ -7,9 +7,7 @@
     <string name="action_settings">Postavke</string>
     <string name="app_mail">info@eventtracker.com</string>
     <string name="card_name">Datum:</string>
-    <string name="birthday_until">Do rođendana od osobe</string>
     <string name="birthday_left">slavi rođendan za:</string>
-    <string name="holiday_until">Do blagdana pod imenom</string>
     <string name="holiday_left">dolazi za:</string>
     <string name="app_name_general">APLIKACIJA</string>
     <string name="app_version_general">Verzija</string>
@@ -39,4 +37,5 @@
     <string name="cancel">Odustani</string>
     <string name="delete_birthday">Obriši rođendan</string>
     <string name="delete_holiday">Obriši blagdan</string>
+    <string name="other_events_left">će se dogoditi za:</string>
 </resources>

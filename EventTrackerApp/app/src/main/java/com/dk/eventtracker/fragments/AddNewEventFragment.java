@@ -78,9 +78,17 @@ public class AddNewEventFragment extends Fragment {
 
                 Toast.makeText(getActivity(), "Uspješno dodan rođendan", Toast.LENGTH_SHORT).show();
             }
+            if (eventType >= 3 && dateCheck(eventDate) == true && availableNameCheck(eventName) == true) {
+                Event event = new Event(3, eventName, eventDate);
+                event.save();
+                getActivity().onBackPressed();
+
+                Toast.makeText(getActivity(), "Uspješno dodan događaj", Toast.LENGTH_SHORT).show();
+            }
         }catch (Exception e){
             Toast.makeText(getActivity(), "Nevaljan unos!", Toast.LENGTH_SHORT).show();
         }
+        // #TODO Napraviti odvojene editTextove kod upisa datuma
     }
     private boolean dateCheck(String date){
         String days = "";
