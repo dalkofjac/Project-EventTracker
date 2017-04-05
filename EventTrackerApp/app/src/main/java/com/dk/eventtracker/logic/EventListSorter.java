@@ -52,8 +52,12 @@ public class EventListSorter {
             Event event = targetedEventList.get(i);
             Date eventDate = convertStringToDate(event.getDate(), 2);
             eventDate.setYear(currentYear-1900);
-            if(eventDate.before(todayDate)){
-                int newCurrentYear= currentYear+1;
+
+            if(todayDate.getDate() == eventDate.getDate()){
+                targetedEventList.get(i).setDate(event.getDate()+"/"+currentYear);
+            }
+            else if(eventDate.before(todayDate)){
+                int newCurrentYear = currentYear+1;
                 targetedEventList.get(i).setDate(event.getDate()+"/"+newCurrentYear);
             }
             else{

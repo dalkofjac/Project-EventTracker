@@ -169,7 +169,7 @@
                 android:layout_marginBottom="15dp">
 
                 <Button
-                    android:text="@string/delete_birthday"
+                    android:text="@string/delete_event"
                     android:id="@+id/button_oe_del"
                     android:elevation="0dp"
                     android:background="@color/colorAccent"

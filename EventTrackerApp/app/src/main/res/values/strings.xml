@@ -38,4 +38,5 @@
     <string name="delete_birthday">Obriši rođendan</string>
     <string name="delete_holiday">Obriši blagdan</string>
     <string name="other_events_left">će se dogoditi za:</string>
+    <string name="delete_event">Obriši događaj</string>
 </resources>

@@ -41,7 +41,7 @@ public class TimerSetter {
 
                 public void onFinish() {
 
-                    textTimer.setText("Upravo!");
+                    textTimer.setText("Danas!");
                 }
             }.start();
         } catch (ParseException e) {
@@ -57,7 +57,11 @@ public class TimerSetter {
         long msDiff = Calendar.getInstance().getTimeInMillis() - event.getTimeInMillis();
         result = TimeUnit.MILLISECONDS.toDays(msDiff);
 
-        return (result*(-1))+1;
+        if(msDiff >= 0) {
+            return 0;
+        }else{
+            return (result*(-1))+1;
+        }
     }
     private Date convertStringToDate(String sDate){
         SimpleDateFormat dateFormat;
