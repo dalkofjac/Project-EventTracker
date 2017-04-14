@@ -39,4 +39,7 @@
     <string name="delete_holiday">Obriši blagdan</string>
     <string name="other_events_left">će se dogoditi za:</string>
     <string name="delete_event">Obriši događaj</string>
+    <string name="login_powered_by">Powered by Dalibor K. © 2017. All rights reserved.</string>
+    <string name="login_type_pass">Upišite lozinku...</string>
+    <string name="login_type_user">Upišite korisničko ime...</string>
 </resources>

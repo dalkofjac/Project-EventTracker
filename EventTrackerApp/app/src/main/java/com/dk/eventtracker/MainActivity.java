@@ -2,6 +2,7 @@ package com.dk.eventtracker;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -149,7 +150,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             FragmentStarter.StartNewFragment(oef, this, 1);
 
         } else if (id == R.id.nav_login) {
-            // #TODO Napraviti "login" i OnClick na "login"
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
