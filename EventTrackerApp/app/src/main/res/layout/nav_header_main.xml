@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Event Tracker"
+        android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:id="@+id/textView_et"
         android:layout_marginTop="10dp" />
@@ -32,6 +32,6 @@
         android:id="@+id/textView_mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="info@eventtracker.com" />
+        android:text="@string/app_mail" />
 
 </LinearLayout>

@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Postavke</string>
-    <string name="app_mail">info@eventtracker.com</string>
+    <string name="app_mail">event.tracker.info@gmail.com</string>
     <string name="card_name">Datum:</string>
     <string name="birthday_left">slavi rođendan za:</string>
     <string name="holiday_left">dolazi za:</string>
