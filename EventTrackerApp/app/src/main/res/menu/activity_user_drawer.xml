@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/nav_group_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_start"
+            android:icon="@drawable/ic_menu_start"
+            android:title="@string/drawer_main" />
+    </group>
+
+    <group
+        android:id="@+id/nav_group_2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_upcoming"
+            android:icon="@drawable/ic_menu_upcoming"
+            android:title="@string/drawer_upcoming" />
+        <item
+            android:id="@+id/nav_holiday"
+            android:icon="@drawable/ic_menu_holiday"
+            android:title="@string/drawer_holidays" />
+        <item
+            android:id="@+id/nav_birthday"
+            android:icon="@drawable/ic_menu_birthday"
+            android:title="@string/drawer_birthdays" />
+        <item
+            android:id="@+id/nav_other"
+            android:icon="@drawable/ic_menu_other_events"
+            android:title="@string/drawer_other" />
+    </group>
+
+    <item android:title="@string/drawer_user_op">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:title="@string/drawer_logout" />
+        </menu>
+    </item>
+
+</menu>

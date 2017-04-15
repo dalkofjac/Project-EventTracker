@@ -1,26 +1,19 @@
 package com.dk.eventtracker;
 
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
-import android.view.Gravity;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.TextView;
 
-import com.dk.eventtracker.adapters.BirthdaysAdapter;
+import com.dk.database.User;
 import com.dk.eventtracker.fragments.AboutAppFragment;
 import com.dk.eventtracker.fragments.BirthdaysFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
@@ -28,33 +21,32 @@ import com.dk.eventtracker.fragments.MainScreenFragment;
 import com.dk.eventtracker.fragments.OtherEventsFragment;
 import com.dk.eventtracker.fragments.UpcomingEventsFragment;
 import com.dk.eventtracker.helpers.FragmentStarter;
+import com.dk.eventtracker.helpers.MyJsonParser;
+import com.dk.eventtracker.webservices.ReceiveUserData;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
-
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener {
+public class UserActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener {
     private FragmentManager mFragmentManager;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
     private Toolbar toolbar;
+    private User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         mFragmentManager = getFragmentManager();
         mFragmentManager.addOnBackStackChangedListener(this);
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view_user);
         navigationView.setNavigationItemSelectedListener(this);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -79,8 +71,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ButterKnife.bind(this);
         FlowManager.init(new FlowConfig.Builder(this).build());
 
+        loadUserData();
+        loadNavigationHeader();
+
         MainScreenFragment msf = new MainScreenFragment();
         FragmentStarter.StartNewFragment(msf, this, 0);
+    }
+
+    private void loadUserData(){
+        currentUser = new User();
+
+        String ans = "";
+        ReceiveUserData receiveUserData = new ReceiveUserData(getIntent().getStringExtra("USER_ID"));
+        try{
+            ans = receiveUserData.execute().get().toString();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        currentUser = MyJsonParser.parseUserInfo(ans);
+    }
+
+    private void loadNavigationHeader(){
+        View view = navigationView.getHeaderView(0);
+        TextView userNameAndSurname = (TextView)view.findViewById(R.id.textView_header_name);
+        TextView userEmail = (TextView)view.findViewById(R.id.textView_header_email);
+
+        userNameAndSurname.setText(currentUser.getName() + " " + currentUser.getSurname());
+        userEmail.setText(currentUser.getEmail());
     }
 
     @Override
@@ -113,8 +131,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            // #TODO Napraviti "postavke" i OnClick na "postavke" - u postavkama reset podataka
-            // #TODO Napraviti i u postavkama omoguciti visejezicnost
             return true;
         }
         else if(id == R.id.action_about){
@@ -132,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_start) {
             MainScreenFragment msf = new MainScreenFragment();
-            mFragmentManager.popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            mFragmentManager.popBackStack(null, android.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
             FragmentStarter.StartNewFragment(msf, this, 0);
 
         } else if (id == R.id.nav_holiday) {
@@ -151,9 +167,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             OtherEventsFragment oef = new OtherEventsFragment();
             FragmentStarter.StartNewFragment(oef, this, 1);
 
-        } else if (id == R.id.nav_login) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
+        } else if (id == R.id.nav_logout) {
+            this.finish();
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

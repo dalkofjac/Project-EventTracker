@@ -1,5 +1,7 @@
 package com.dk.eventtracker;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -42,12 +44,14 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if(response.matches("")){
-            Toast.makeText(this, "Greška kod prijave!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Pogrešno korisničko ime ili lozinka!", Toast.LENGTH_SHORT).show();
         }
         else{
             Toast.makeText(this, "Uspješna prijava!!!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,UserActivity.class);
+            intent.putExtra("USER_ID", response);
+            this.startActivity(intent);
+            this.finish();
         }
-        username.setText("");
-        password.setText("");
     }
 }

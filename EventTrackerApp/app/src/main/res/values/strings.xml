@@ -42,4 +42,5 @@
     <string name="login_powered_by">Powered by Dalibor K. © 2017. All rights reserved.</string>
     <string name="login_type_pass">Upišite lozinku...</string>
     <string name="login_type_user">Upišite korisničko ime...</string>
+    <string name="drawer_logout">Odjava</string>
 </resources>
