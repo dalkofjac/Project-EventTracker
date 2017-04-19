@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutsHolder"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="match_parent"
+            app:srcCompat="@drawable/logo_pic_small"
+            android:id="@+id/ImageView_ms_logo"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:layout_height="75dp" />
+
+        <ImageView
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/thin_line"
+            android:id="@+id/thin_line_1"
+            android:layout_gravity="center"
+            android:layout_width="match_parent" />
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonsLayout"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/firstRowLayout"
+                android:layout_marginBottom="5dp">
+
+                <Button
+                    android:text="@string/ms_upcoming"
+                    android:id="@+id/button_ms_upcoming"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textStyle="normal|bold|italic"
+                    android:layout_width="50dp"
+                    android:layout_height="120dp"
+                    android:textColor="#fff"
+                    android:background="@color/colorPrimary" />
+
+                <Button
+                    android:text="@string/drawer_holidays"
+                    android:id="@+id/button_ms_holiday"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textStyle="normal|bold|italic"
+                    android:layout_height="120dp"
+                    android:layout_width="50dp"
+                    android:textColor="#fff"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginLeft="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/secondRowLayout"
+                android:layout_marginBottom="5dp">
+
+                <Button
+                    android:text="@string/drawer_birthdays"
+                    android:id="@+id/button_ms_birthday"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textStyle="normal|bold|italic"
+                    android:layout_height="120dp"
+                    android:layout_width="50dp"
+                    android:textColor="#fff"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginRight="5dp" />
+
+                <Button
+                    android:text="@string/other_general"
+                    android:id="@+id/button_ms_other"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textStyle="normal|bold|italic"
+                    android:layout_height="120dp"
+                    android:layout_width="50dp"
+                    android:textColor="#fff"
+                    android:background="@color/colorPrimary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/thirdRowLayout">
+
+                <Button
+                    android:text="@string/personal_general"
+                    android:id="@+id/button_ms_personal"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:textStyle="normal|bold|italic"
+                    android:layout_width="match_parent"
+                    android:textColor="#fff"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_height="65dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/thin_line"
+            android:id="@+id/thin_line_2"
+            android:layout_gravity="center"
+            android:layout_width="match_parent" />
+
+    </LinearLayout>
+
+</LinearLayout>

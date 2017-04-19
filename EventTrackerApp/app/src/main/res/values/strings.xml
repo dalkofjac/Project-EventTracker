@@ -43,4 +43,6 @@
     <string name="login_type_pass">Upišite lozinku...</string>
     <string name="login_type_user">Upišite korisničko ime...</string>
     <string name="drawer_logout">Odjava</string>
+    <string name="personal_general">Privatno</string>
+    <string name="drawer_personal">Privatni događaji</string>
 </resources>

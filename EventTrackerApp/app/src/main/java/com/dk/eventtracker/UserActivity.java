@@ -20,6 +20,7 @@ import com.dk.eventtracker.fragments.HolidaysFragment;
 import com.dk.eventtracker.fragments.MainScreenFragment;
 import com.dk.eventtracker.fragments.OtherEventsFragment;
 import com.dk.eventtracker.fragments.UpcomingEventsFragment;
+import com.dk.eventtracker.fragments.UserMainScreenFragment;
 import com.dk.eventtracker.helpers.FragmentStarter;
 import com.dk.eventtracker.helpers.MyJsonParser;
 import com.dk.eventtracker.webservices.ReceiveUserData;
@@ -74,8 +75,8 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
         loadUserData();
         loadNavigationHeader();
 
-        MainScreenFragment msf = new MainScreenFragment();
-        FragmentStarter.StartNewFragment(msf, this, 0);
+        UserMainScreenFragment umsf = new UserMainScreenFragment();
+        FragmentStarter.StartNewFragment(umsf, this, 0);
     }
 
     private void loadUserData(){
@@ -147,9 +148,9 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_start) {
-            MainScreenFragment msf = new MainScreenFragment();
+            UserMainScreenFragment umsf = new UserMainScreenFragment();
             mFragmentManager.popBackStack(null, android.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            FragmentStarter.StartNewFragment(msf, this, 0);
+            FragmentStarter.StartNewFragment(umsf, this, 0);
 
         } else if (id == R.id.nav_holiday) {
             HolidaysFragment hf = new HolidaysFragment();
@@ -166,6 +167,9 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_other) {
             OtherEventsFragment oef = new OtherEventsFragment();
             FragmentStarter.StartNewFragment(oef, this, 1);
+
+        } else if (id == R.id.nav_personal) {
+            // #TODO Linkati PersonalFragment dok se napravi
 
         } else if (id == R.id.nav_logout) {
             this.finish();

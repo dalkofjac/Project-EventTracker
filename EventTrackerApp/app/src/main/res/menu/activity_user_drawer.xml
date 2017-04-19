@@ -34,6 +34,9 @@
     <item android:title="@string/drawer_user_op">
         <menu>
             <item
+                android:id="@+id/nav_personal"
+                android:title="@string/drawer_personal" />
+            <item
                 android:id="@+id/nav_logout"
                 android:title="@string/drawer_logout" />
         </menu>

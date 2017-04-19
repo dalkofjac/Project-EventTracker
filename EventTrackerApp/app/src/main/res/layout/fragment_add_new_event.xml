@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,13 +19,6 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp">
 
-            <ImageView
-                app:srcCompat="@drawable/logo_pic_small"
-                android:id="@+id/imageView_adding_logo"
-                android:layout_weight="1"
-                android:layout_width="200dp"
-                android:layout_height="150dp" />
-
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -32,51 +26,64 @@
                 android:layout_weight="1"
                 android:id="@+id/editLayout"
                 android:gravity="top"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp">
 
-                <EditText
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:ems="10"
-                    android:id="@+id/editText_add_event_name"
-                    android:hint="@string/name_general"
-                    android:textSize="20dp" />
+                    android:layout_height="wrap_content">
 
-                <EditText
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editText_add_event_name"
+                        android:hint="@string/name_general"
+                        android:textSize="20dp"
+                        android:layout_weight="1" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:ems="10"
-                    android:id="@+id/editText_add_event_date"
-                    android:hint="@string/date_general"
-                    android:paddingTop="15dp"
-                    android:textSize="20dp" />
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:ems="10"
+                        android:id="@+id/editText_add_event_date"
+                        android:hint="@string/date_general"
+                        android:paddingTop="15dp"
+                        android:textSize="20dp"
+                        android:layout_weight="1" />
+                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttonLayout"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp">
+            android:layout_marginRight="30dp"
+            android:gravity="right">
 
             <Button
                 android:text="@string/add_event"
-                android:layout_height="wrap_content"
                 android:id="@+id/button_add_event"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
-                android:layout_width="match_parent"
                 style="@style/Widget.AppCompat.Button"
                 android:textColor="#fff"
                 android:textStyle="normal|bold"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:layout_height="35dp"
+                android:layout_width="150dp" />
         </LinearLayout>
 
     </LinearLayout>
