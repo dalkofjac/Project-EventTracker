@@ -53,8 +53,11 @@ public class AddNewEventFragment extends Fragment {
         else if (eventType == 2) {
             ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dodaj rođendan");
         }
-        else{
+        else if (eventType == 3){
             ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dodaj događaj");
+        }
+        else{
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dodaj privatni događaj");
         }
     }
 
@@ -84,6 +87,12 @@ public class AddNewEventFragment extends Fragment {
                 getActivity().onBackPressed();
 
                 Toast.makeText(getActivity(), "Uspješno dodan događaj", Toast.LENGTH_SHORT).show();
+            }
+            if (eventType >= 4 && dateCheck(eventDate) == true && availableNameCheck(eventName) == true) {
+                //#TODO Napraviti spremanje novog događaja u web bazu
+                getActivity().onBackPressed();
+
+                Toast.makeText(getActivity(), "Uspješno dodan privatni događaj", Toast.LENGTH_SHORT).show();
             }
         }catch (Exception e){
             Toast.makeText(getActivity(), "Nevaljan unos!", Toast.LENGTH_SHORT).show();

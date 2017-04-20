@@ -57,7 +57,7 @@ public class UserMainScreenFragment extends Fragment {
 
     @OnClick(R.id.button_ms_personal)
     public void onButtonMsPersonalClicked(){
-        // #TODO Napraviti PersonalFragment i postaviti onClick na njega
-        // #TODO Napraviti vezu s webservisom da se podaci za PersonalFragment dobavljaju iz njega
+        PersonalEventsFragment pef = new PersonalEventsFragment();
+        FragmentStarter.StartNewFragment(pef, getActivity(), 1);
     }
 }

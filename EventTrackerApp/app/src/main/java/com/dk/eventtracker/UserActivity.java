@@ -19,6 +19,7 @@ import com.dk.eventtracker.fragments.BirthdaysFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
 import com.dk.eventtracker.fragments.MainScreenFragment;
 import com.dk.eventtracker.fragments.OtherEventsFragment;
+import com.dk.eventtracker.fragments.PersonalEventsFragment;
 import com.dk.eventtracker.fragments.UpcomingEventsFragment;
 import com.dk.eventtracker.fragments.UserMainScreenFragment;
 import com.dk.eventtracker.helpers.FragmentStarter;
@@ -169,7 +170,8 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
             FragmentStarter.StartNewFragment(oef, this, 1);
 
         } else if (id == R.id.nav_personal) {
-            // #TODO Linkati PersonalFragment dok se napravi
+            PersonalEventsFragment pef = new PersonalEventsFragment();
+            FragmentStarter.StartNewFragment(pef, this, 1);
 
         } else if (id == R.id.nav_logout) {
             this.finish();
