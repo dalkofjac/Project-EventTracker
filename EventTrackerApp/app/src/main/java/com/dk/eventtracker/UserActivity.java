@@ -17,7 +17,6 @@ import com.dk.database.User;
 import com.dk.eventtracker.fragments.AboutAppFragment;
 import com.dk.eventtracker.fragments.BirthdaysFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
-import com.dk.eventtracker.fragments.MainScreenFragment;
 import com.dk.eventtracker.fragments.OtherEventsFragment;
 import com.dk.eventtracker.fragments.PersonalEventsFragment;
 import com.dk.eventtracker.fragments.UpcomingEventsFragment;
@@ -91,7 +90,7 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
             e.printStackTrace();
         }
 
-        currentUser = MyJsonParser.parseUserInfo(ans);
+        currentUser = MyJsonParser.ParseUserInfo(ans);
     }
 
     private void loadNavigationHeader(){

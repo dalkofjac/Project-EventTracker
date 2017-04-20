@@ -15,7 +15,9 @@ import com.dk.database.Event;
 import com.dk.eventtracker.R;
 import com.dk.eventtracker.adapters.PersonalEventsAdapter;
 import com.dk.eventtracker.helpers.FragmentStarter;
+import com.dk.eventtracker.helpers.MyJsonParser;
 import com.dk.eventtracker.logic.EventListSorter;
+import com.dk.eventtracker.webservices.ReceiveEventData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +78,16 @@ public class PersonalEventsFragment extends Fragment {
     }
 
     public void requestData() {
-        //#TODO eventList = webservice.get();
+        String ans = "";
+        ReceiveEventData red = new ReceiveEventData(getActivity().getIntent().getStringExtra("USER_ID"));
+        try{
+            ans = red.execute().get().toString();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        eventList = MyJsonParser.ParseEventsInfo(ans);
+
         els.attachYears(eventList);
         els.sortTheList(eventList);
     }
