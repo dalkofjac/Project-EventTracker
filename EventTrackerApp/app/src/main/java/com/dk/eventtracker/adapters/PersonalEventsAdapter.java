@@ -30,10 +30,13 @@ public class PersonalEventsAdapter extends RecyclerView.Adapter<PersonalEventsAd
 
         private Context context;
 
-        public PersonalEventsViewHolder(View view ,Context context) {
+        private List<Event> eventListTemp;
+
+        public PersonalEventsViewHolder(View view, Context context, List<Event> eventListTemp) {
             super(view);
 
             this.context = context;
+            this.eventListTemp = eventListTemp;
             name = (TextView) view.findViewById(R.id.textView_event_name);
             date = (TextView) view.findViewById(R.id.textView_event_date);
             itemView.setOnClickListener(this);
@@ -41,9 +44,17 @@ public class PersonalEventsAdapter extends RecyclerView.Adapter<PersonalEventsAd
 
         @Override
         public void onClick(View v) {
+            String tempName = (String)name.getText();
+            String tempDate = (String)date.getText();
             Bundle args = new Bundle();
-            args.putString("EVENT_NAME",(String)name.getText());
-            args.putString("EVENT_DATE",(String)date.getText());
+            args.putString("EVENT_NAME",tempName);
+            args.putString("EVENT_DATE",tempDate);
+
+            for(int i=0;i<eventListTemp.size(); i++){
+                if(eventListTemp.get(i).getName().matches(tempName) && eventListTemp.get(i).getDate().matches(tempDate)){
+                    args.putString("EVENT_ID", String.valueOf(eventListTemp.get(i).getId()));
+                }
+            }
 
             PersonalEventsDetailsFragment pedf = new PersonalEventsDetailsFragment();
             pedf.setArguments(args);
@@ -65,7 +76,7 @@ public class PersonalEventsAdapter extends RecyclerView.Adapter<PersonalEventsAd
     @Override
     public PersonalEventsAdapter.PersonalEventsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list_item,parent,false);
-        return new PersonalEventsAdapter.PersonalEventsViewHolder(view, context);
+        return new PersonalEventsAdapter.PersonalEventsViewHolder(view, context, eventList);
     }
 
     @Override

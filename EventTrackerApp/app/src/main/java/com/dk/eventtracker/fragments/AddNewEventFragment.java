@@ -11,10 +11,9 @@ import android.widget.Toast;
 
 import com.dk.database.Event;
 import com.dk.eventtracker.R;
+import com.dk.eventtracker.webservices.EventAdder;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -81,15 +80,16 @@ public class AddNewEventFragment extends Fragment {
 
                 Toast.makeText(getActivity(), "Uspješno dodan rođendan", Toast.LENGTH_SHORT).show();
             }
-            if (eventType >= 3 && dateCheck(eventDate) == true && availableNameCheck(eventName) == true) {
+            if (eventType == 3 && dateCheck(eventDate) == true && availableNameCheck(eventName) == true) {
                 Event event = new Event(3, eventName, eventDate);
                 event.save();
                 getActivity().onBackPressed();
 
                 Toast.makeText(getActivity(), "Uspješno dodan događaj", Toast.LENGTH_SHORT).show();
             }
-            if (eventType >= 4 && dateCheck(eventDate) == true && availableNameCheck(eventName) == true) {
-                //#TODO Napraviti spremanje novog događaja u web bazu
+            if (eventType == 4 && dateCheck(eventDate) == true) {
+                Event event = new Event(4, eventName, eventDate);
+                addPersonalEvent(getActivity().getIntent().getStringExtra("USER_ID"), event);
                 getActivity().onBackPressed();
 
                 Toast.makeText(getActivity(), "Uspješno dodan privatni događaj", Toast.LENGTH_SHORT).show();
@@ -125,5 +125,13 @@ public class AddNewEventFragment extends Fragment {
             }
         }
         return true;
+    }
+    private void addPersonalEvent(String userId, Event event){
+        EventAdder eventAdder = new EventAdder(userId, event);
+        try{
+            eventAdder.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

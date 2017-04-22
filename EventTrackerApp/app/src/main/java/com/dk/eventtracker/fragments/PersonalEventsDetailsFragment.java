@@ -9,9 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.dk.database.Event;
 import com.dk.eventtracker.R;
 import com.dk.eventtracker.logic.TimerSetter;
+import com.dk.eventtracker.webservices.EventDeleter;
+import com.dk.eventtracker.webservices.ReceiveEventData;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +42,7 @@ public class PersonalEventsDetailsFragment extends Fragment {
 
     String eventName;
     String eventDate;
+    String eventId;
 
     String removalQuestion;
     String remove;
@@ -56,6 +61,7 @@ public class PersonalEventsDetailsFragment extends Fragment {
         timerSetter = new TimerSetter();
         eventName = getArguments().getString("EVENT_NAME");
         eventDate = getArguments().getString("EVENT_DATE");
+        eventId = getArguments().getString("EVENT_ID");
         return view;
     }
 
@@ -76,7 +82,7 @@ public class PersonalEventsDetailsFragment extends Fragment {
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, remove, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //#TODO Napraviti brisanje iz web baze
+                deleteEvent(getActivity().getIntent().getStringExtra("USER_ID"), eventId);
                 alertDialog.dismiss();
                 getActivity().onBackPressed();
             }
@@ -89,5 +95,13 @@ public class PersonalEventsDetailsFragment extends Fragment {
         });
 
         alertDialog.show();
+    }
+    private void deleteEvent(String userId, String eventId){
+        EventDeleter eventDeleter = new EventDeleter(userId, eventId);
+        try{
+            eventDeleter.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
