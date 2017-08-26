@@ -13,7 +13,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            app:srcCompat="@drawable/logo_pic_small"
+            app:srcCompat="@drawable/logo_p_small"
             android:id="@+id/ImageView_ms_logo"
             android:adjustViewBounds="false"
             android:cropToPadding="false"

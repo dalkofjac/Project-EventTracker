@@ -14,7 +14,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        app:srcCompat="@drawable/logo_pic_small"
+        app:srcCompat="@drawable/logo_p_small"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
         android:layout_width="50dp"
