@@ -33,18 +33,20 @@ public class UpcomingEventsFragment extends Fragment {
     private RecyclerView recyclerView;
     private UpcomingEventsAdapter mAdapter;
     private EventListSorter els = new EventListSorter();
+    private String fragmentTitle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_upcoming_events,container,false);
         ButterKnife.bind(this, view);
+        fragmentTitle = getResources().getString(R.string.upcoming_events_title);
         return view;
     }
 
     @Override
     public void onStart(){
         super.onStart();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Uskoro");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(fragmentTitle);
         recyclerView = (RecyclerView) getView().findViewById(R.id.main_recycler_3);
 
         requestData();

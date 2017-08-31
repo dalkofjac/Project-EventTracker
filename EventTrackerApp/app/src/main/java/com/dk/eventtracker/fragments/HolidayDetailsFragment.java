@@ -46,6 +46,8 @@ public class HolidayDetailsFragment extends Fragment {
 
     AlertDialog alertDialog;
 
+    private String fragmentTitle;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_holiday_details,container,false);
@@ -57,13 +59,15 @@ public class HolidayDetailsFragment extends Fragment {
         timerSetter = new TimerSetter();
         eventName = getArguments().getString("EVENT_NAME");
         eventDate = getArguments().getString("EVENT_DATE");
+        fragmentTitle = getResources().getString(R.string.time_till_holiday_title);
+
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Vrijeme do blagdana");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(fragmentTitle);
 
         textName.setText(eventName);
         textDate.setText(eventDate);

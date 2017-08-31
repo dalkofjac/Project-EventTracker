@@ -16,16 +16,20 @@ import butterknife.ButterKnife;
  */
 
 public class AboutAppFragment extends Fragment {
+    private String fragmentTitle;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_about_app,container,false);
         ButterKnife.bind(this, view);
+
+        fragmentTitle = getResources().getString(R.string.action_about);
+
         return view;
     }
 
     @Override
     public void onStart(){
         super.onStart();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("O aplikaciji");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(fragmentTitle);
     }
 }

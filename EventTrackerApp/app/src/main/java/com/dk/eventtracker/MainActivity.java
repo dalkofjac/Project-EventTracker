@@ -3,8 +3,10 @@ package com.dk.eventtracker;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -28,6 +30,7 @@ import com.dk.eventtracker.fragments.MainScreenFragment;
 import com.dk.eventtracker.fragments.OtherEventsFragment;
 import com.dk.eventtracker.fragments.UpcomingEventsFragment;
 import com.dk.eventtracker.helpers.FragmentStarter;
+import com.dk.eventtracker.helpers.Util;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
@@ -37,12 +40,13 @@ import java.util.TimeZone;
 
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
     private FragmentManager mFragmentManager;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
     private Toolbar toolbar;
+    private Util util = new Util();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        util.setLanguage(this);
 
         mFragmentManager = getFragmentManager();
         mFragmentManager.addOnBackStackChangedListener(this);
@@ -81,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         MainScreenFragment msf = new MainScreenFragment();
         FragmentStarter.StartNewFragment(msf, this, 0);
+
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
@@ -115,7 +123,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.action_settings) {
             // #TODO Napraviti "postavke" i OnClick na "postavke" - u postavkama reset podataka
             // #TODO Napraviti i u postavkama omoguciti visejezicnost
-            return true;
+            Intent intent = new Intent(this, AppPreferenceActivity.class);
+            startActivity(intent);
         }
         else if(id == R.id.action_about){
             AboutAppFragment aaf = new AboutAppFragment();
@@ -166,5 +175,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.setDrawerIndicatorEnabled(mFragmentManager.getBackStackEntryCount()==1 || mFragmentManager.getBackStackEntryCount()==2);
         getSupportActionBar().setDisplayHomeAsUpEnabled(mFragmentManager.getBackStackEntryCount()>2);
         toggle.syncState();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        util.setLanguage(this);
+        this.recreate();
     }
 }

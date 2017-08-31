@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Event Tracker</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Otvori navigation drawer</string>
+    <string name="navigation_drawer_close">Zatvori navigation drawer</string>
 
     <string name="action_settings">Postavke</string>
     <string name="app_mail">event.tracker.info@gmail.com</string>
@@ -45,4 +45,23 @@
     <string name="drawer_logout">Odjava</string>
     <string name="personal_general">Privatno</string>
     <string name="drawer_personal">Privatni događaji</string>
+    <string name="app_lang_pref">Željeni jezik aplikacije</string>
+    <string name="app_pref_load_default_data">Koristiti samo defaultne podatke</string>
+    <string name="login_good">Uspješna prijava!!!</string>
+    <string name="login_bad">Pogrešno korisničko ime ili lozinka!</string>
+
+    <string name="about_app_title">O aplikaciji</string>
+    <string name="add_birthday_title">Dodaj rođendan</string>
+    <string name="add_holiday_title">Dodaj blagdan</string>
+    <string name="add_event_title">Dodaj događaj</string>
+    <string name="add_personal_event_title">Dodaj privatni događaj</string>
+    <string name="time_till_birthday_title">Vrijeme do rođendana</string>
+    <string name="birthdays_title">Rođendani</string>
+    <string name="time_till_holiday_title">Vrijeme do blagdana</string>
+    <string name="holidays_title">Blagdani</string>
+    <string name="events_title">Ostali događaji</string>
+    <string name="time_till_event_title">Vrijeme do događaja</string>
+    <string name="personal_event_title">Privatni događaji</string>
+    <string name="upcoming_events_title">Uskoro</string>
+
 </resources>

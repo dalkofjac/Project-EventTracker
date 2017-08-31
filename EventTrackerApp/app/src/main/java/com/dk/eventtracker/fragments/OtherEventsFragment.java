@@ -40,6 +40,8 @@ public class OtherEventsFragment extends Fragment {
     @BindView(R.id.fab_event)
     public FloatingActionButton fab;
 
+    private String fragmentTitle;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_other_events, container, false);
@@ -58,13 +60,15 @@ public class OtherEventsFragment extends Fragment {
             }
         });
 
+        fragmentTitle = getResources().getString(R.string.events_title);
+
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Ostali događaji");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(fragmentTitle);
 
         recyclerView = (RecyclerView) getView().findViewById(R.id.main_recycler_4);
 

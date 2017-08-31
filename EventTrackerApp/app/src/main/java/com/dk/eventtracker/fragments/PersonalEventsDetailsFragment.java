@@ -50,6 +50,8 @@ public class PersonalEventsDetailsFragment extends Fragment {
 
     AlertDialog alertDialog;
 
+    private String fragmentTitle;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_personal_events_details,container,false);
@@ -62,13 +64,14 @@ public class PersonalEventsDetailsFragment extends Fragment {
         eventName = getArguments().getString("EVENT_NAME");
         eventDate = getArguments().getString("EVENT_DATE");
         eventId = getArguments().getString("EVENT_ID");
+        fragmentTitle = getResources().getString(R.string.time_till_event_title);
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Vrijeme do događaja");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(fragmentTitle);
 
         textName.setText(eventName);
         textDate.setText(eventDate);

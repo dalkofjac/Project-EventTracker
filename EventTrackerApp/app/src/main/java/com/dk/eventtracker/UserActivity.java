@@ -1,6 +1,8 @@
 package com.dk.eventtracker;
 
 import android.app.FragmentManager;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,19 +25,21 @@ import com.dk.eventtracker.fragments.UpcomingEventsFragment;
 import com.dk.eventtracker.fragments.UserMainScreenFragment;
 import com.dk.eventtracker.helpers.FragmentStarter;
 import com.dk.eventtracker.helpers.MyJsonParser;
+import com.dk.eventtracker.helpers.Util;
 import com.dk.eventtracker.webservices.ReceiveUserData;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
 
 import butterknife.ButterKnife;
 
-public class UserActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener {
+public class UserActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
     private FragmentManager mFragmentManager;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
     private Toolbar toolbar;
     private User currentUser;
+    private Util util = new Util();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,8 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_user);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        util.setLanguage(this);
 
         mFragmentManager = getFragmentManager();
         mFragmentManager.addOnBackStackChangedListener(this);
@@ -77,6 +83,8 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
 
         UserMainScreenFragment umsf = new UserMainScreenFragment();
         FragmentStarter.StartNewFragment(umsf, this, 0);
+
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
     }
 
     private void loadUserData(){
@@ -186,5 +194,11 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
         toggle.setDrawerIndicatorEnabled(mFragmentManager.getBackStackEntryCount()==1 || mFragmentManager.getBackStackEntryCount()==2);
         getSupportActionBar().setDisplayHomeAsUpEnabled(mFragmentManager.getBackStackEntryCount()>2);
         toggle.syncState();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        util.setLanguage(this);
+        this.recreate();
     }
 }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Event Tracker</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Options</string>
+    <string name="app_mail">event.tracker.info@gmail.com</string>
+    <string name="card_name">Date:</string>
+    <string name="birthday_left">is celebrating birthday in:</string>
+    <string name="holiday_left">comes in:</string>
+    <string name="app_name_general">APPLICATION</string>
+    <string name="app_version_general">Version</string>
+    <string name="app_version">1.0.0</string>
+    <string name="app_author_general">Author</string>
+    <string name="app_author">Dalibor K.</string>
+    <string name="app_project_general">Project</string>
+    <string name="app_project">Event Tracker App</string>
+    <string name="time_hd">HOURS</string>
+    <string name="oror_hd">or</string>
+    <string name="days_hd">DAYS</string>
+    <string name="add_event">Add</string>
+    <string name="date_general">Date (example 05/10)</string>
+    <string name="name_general">Name</string>
+    <string name="drawer_main">Main screen</string>
+    <string name="drawer_holidays">Holidays</string>
+    <string name="drawer_birthdays">Birthdays</string>
+    <string name="drawer_other">Other events</string>
+    <string name="action_about">About app</string>
+    <string name="drawer_login">Login</string>
+    <string name="drawer_user_op">User options</string>
+    <string name="drawer_upcoming">Coming soon</string>
+    <string name="other_general">Other</string>
+    <string name="ms_upcoming">Coming soon</string>
+    <string name="removal_question">Are you sure you want to delete it?</string>
+    <string name="remove">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_birthday">Delete birthday</string>
+    <string name="delete_holiday">Delete holiday</string>
+    <string name="other_events_left">will happen in:</string>
+    <string name="delete_event">Delete event</string>
+    <string name="login_powered_by">Powered by Dalibor K. © 2017. All rights reserved.</string>
+    <string name="login_type_pass">Type password...</string>
+    <string name="login_type_user">Type username...</string>
+    <string name="drawer_logout">Logout</string>
+    <string name="personal_general">Personal</string>
+    <string name="drawer_personal">Personal events</string>
+    <string name="app_lang_pref">Prefered application language</string>
+    <string name="app_pref_load_default_data">Use only default data</string>
+    <string name="login_good">Successful login!!!</string>
+    <string name="login_bad">Wrong username or password!</string>
+
+    <string name="about_app_title">About app</string>
+    <string name="add_birthday_title">Add birthday</string>
+    <string name="add_holiday_title">Add holiday</string>
+    <string name="add_event_title">Add event</string>
+    <string name="add_personal_event_title">Add personal event</string>
+    <string name="time_till_birthday_title">Time until birthday</string>
+    <string name="birthdays_title">Birthdays</string>
+    <string name="time_till_holiday_title">Time until holiday</string>
+    <string name="holidays_title">Holidays</string>
+    <string name="events_title">Other events</string>
+    <string name="time_till_event_title">Time until event</string>
+    <string name="personal_event_title">Personal events</string>
+    <string name="upcoming_events_title">Coming soon</string>
+
+</resources>

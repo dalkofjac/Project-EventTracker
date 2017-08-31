@@ -38,6 +38,8 @@ public class PersonalEventsFragment extends Fragment {
     @BindView(R.id.fab_event)
     public FloatingActionButton fab;
 
+    private String fragmentTitle;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_personal_events, container, false);
@@ -56,13 +58,15 @@ public class PersonalEventsFragment extends Fragment {
             }
         });
 
+        fragmentTitle = getResources().getString(R.string.personal_event_title);
+
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Privatni događaji");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(fragmentTitle);
 
         recyclerView = (RecyclerView) getView().findViewById(R.id.main_recycler_5);
 

@@ -23,11 +23,15 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.editText_password)
     EditText password;
 
+    private String loginResponseGood;
+    private String loginResponseBad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        loginResponseGood = getResources().getString(R.string.login_good);
+        loginResponseBad = getResources().getString(R.string.login_bad);
         ButterKnife.bind(this);
     }
     @OnClick(R.id.button_login)
@@ -44,10 +48,10 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if(response.matches("")){
-            Toast.makeText(this, "Pogrešno korisničko ime ili lozinka!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, loginResponseBad, Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(this, "Uspješna prijava!!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, loginResponseGood, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this,UserActivity.class);
             intent.putExtra("USER_ID", response);
             this.startActivity(intent);

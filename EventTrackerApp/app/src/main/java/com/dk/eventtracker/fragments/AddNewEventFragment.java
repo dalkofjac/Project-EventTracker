@@ -25,6 +25,7 @@ import butterknife.OnClick;
 
 public class AddNewEventFragment extends Fragment {
     private int eventType;
+    private String fragmentTitle;
 
     @BindView(R.id.editText_add_event_name)
     EditText newEventName;
@@ -47,17 +48,18 @@ public class AddNewEventFragment extends Fragment {
         super.onStart();
 
         if(eventType == 1) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dodaj blagdan");
+            fragmentTitle = getResources().getString(R.string.add_holiday_title);
         }
         else if (eventType == 2) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dodaj rođendan");
+            fragmentTitle = getResources().getString(R.string.add_birthday_title);
         }
         else if (eventType == 3){
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dodaj događaj");
+            fragmentTitle = getResources().getString(R.string.add_event_title);
         }
         else{
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Dodaj privatni događaj");
+            fragmentTitle = getResources().getString(R.string.add_personal_event_title);
         }
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(fragmentTitle);
     }
 
     @OnClick(R.id.button_add_event)

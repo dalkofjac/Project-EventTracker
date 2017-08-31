@@ -53,6 +53,8 @@ public class HolidaysFragment extends Fragment {
     @BindView(R.id.fab_event)
     public FloatingActionButton fab;
 
+    private String fragmentTitle;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_holidays,container,false);
@@ -71,13 +73,15 @@ public class HolidaysFragment extends Fragment {
             }
         });
 
+        fragmentTitle = getResources().getString(R.string.holidays_title);
+
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Blagdani");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(fragmentTitle);
 
         recyclerView = (RecyclerView) getView().findViewById(R.id.main_recycler_2);
 
