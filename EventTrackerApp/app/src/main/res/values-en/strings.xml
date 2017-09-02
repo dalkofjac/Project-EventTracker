@@ -51,6 +51,11 @@
     <string name="login_good">Successful login!!!</string>
     <string name="login_bad">Wrong username or password!</string>
 
+    <string name="bad_input">Bad input!</string>
+    <string name="bad_date_format">Bad date format! (dd/mm)</string>
+    <string name="invalid_date">Nonexistent date!</string>
+    <string name="name_alr_exist">Given name already exists!</string>
+
     <string name="about_app_title">About app</string>
     <string name="add_birthday_title">Add birthday</string>
     <string name="add_holiday_title">Add holiday</string>
@@ -64,5 +69,6 @@
     <string name="time_till_event_title">Time until event</string>
     <string name="personal_event_title">Personal events</string>
     <string name="upcoming_events_title">Coming soon</string>
+    <string name="added_event">Event successfully added!</string>
 
 </resources>

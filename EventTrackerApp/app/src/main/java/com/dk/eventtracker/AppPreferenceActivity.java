@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-
 import com.dk.eventtracker.helpers.Util;
+
 
 /**
  * Created by Dalibor on 31.8.2017..
@@ -22,8 +22,7 @@ public class AppPreferenceActivity extends PreferenceActivity implements SharedP
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new AppPreferenceFragment()).commit();
+        getFragmentManager().beginTransaction().replace(android.R.id.content, new AppPreferenceFragment()).commit();
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
     }
 

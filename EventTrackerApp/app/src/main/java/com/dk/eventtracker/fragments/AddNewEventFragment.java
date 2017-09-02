@@ -26,6 +26,11 @@ import butterknife.OnClick;
 public class AddNewEventFragment extends Fragment {
     private int eventType;
     private String fragmentTitle;
+    private String addingMsg;
+    private String badInput;
+    private String badFormat;
+    private String unDate;
+    private String nameAlExist;
 
     @BindView(R.id.editText_add_event_name)
     EditText newEventName;
@@ -59,6 +64,13 @@ public class AddNewEventFragment extends Fragment {
         else{
             fragmentTitle = getResources().getString(R.string.add_personal_event_title);
         }
+
+        addingMsg = getResources().getString(R.string.added_event);
+        badInput = getResources().getString(R.string.bad_input);
+        badFormat = getResources().getString(R.string.bad_date_format);
+        unDate = getResources().getString(R.string.invalid_date);
+        nameAlExist = getResources().getString(R.string.name_alr_exist);
+
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(fragmentTitle);
     }
 
@@ -73,31 +85,31 @@ public class AddNewEventFragment extends Fragment {
                 event.save();
                 getActivity().onBackPressed();
 
-                Toast.makeText(getActivity(), "Uspješno dodan blagdan", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), addingMsg, Toast.LENGTH_SHORT).show();
             }
             if (eventType == 2 && dateCheck(eventDate) == true && availableNameCheck(eventName) == true) {
                 Event event = new Event(2, eventName, eventDate);
                 event.save();
                 getActivity().onBackPressed();
 
-                Toast.makeText(getActivity(), "Uspješno dodan rođendan", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), addingMsg, Toast.LENGTH_SHORT).show();
             }
             if (eventType == 3 && dateCheck(eventDate) == true && availableNameCheck(eventName) == true) {
                 Event event = new Event(3, eventName, eventDate);
                 event.save();
                 getActivity().onBackPressed();
 
-                Toast.makeText(getActivity(), "Uspješno dodan događaj", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), addingMsg, Toast.LENGTH_SHORT).show();
             }
             if (eventType == 4 && dateCheck(eventDate) == true) {
                 Event event = new Event(4, eventName, eventDate);
                 addPersonalEvent(getActivity().getIntent().getStringExtra("USER_ID"), event);
                 getActivity().onBackPressed();
 
-                Toast.makeText(getActivity(), "Uspješno dodan privatni događaj", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), addingMsg, Toast.LENGTH_SHORT).show();
             }
         }catch (Exception e){
-            Toast.makeText(getActivity(), "Nevaljan unos!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), badInput, Toast.LENGTH_SHORT).show();
         }
         // #TODO Napraviti odvojene editTextove kod upisa datuma
     }
@@ -108,12 +120,12 @@ public class AddNewEventFragment extends Fragment {
         months = date.substring(date.indexOf("/")+1);
 
         if(date.length() > 5){
-            Toast.makeText(getActivity(), "Krivi format datuma! (dd/mm)", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), badFormat, Toast.LENGTH_LONG).show();
             return false;
         }
 
         if(Integer.parseInt(days)>31 || Integer.parseInt(months)>12){
-            Toast.makeText(getActivity(), "Nepostojeći datum!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), unDate, Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
@@ -122,7 +134,7 @@ public class AddNewEventFragment extends Fragment {
         List<Event> eventList = Event.getAll();
         for(int i=0;i<eventList.size(); i++){
             if(eventList.get(i).getName().matches(name)){
-                Toast.makeText(getActivity(), "Naziv već postoji!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), nameAlExist, Toast.LENGTH_SHORT).show();
                 return false;
             }
         }

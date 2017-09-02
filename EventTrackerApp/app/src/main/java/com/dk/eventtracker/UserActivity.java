@@ -1,6 +1,7 @@
 package com.dk.eventtracker;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
@@ -82,6 +83,7 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
         loadNavigationHeader();
 
         UserMainScreenFragment umsf = new UserMainScreenFragment();
+        mFragmentManager.popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
         FragmentStarter.StartNewFragment(umsf, this, 0);
 
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
@@ -140,7 +142,8 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(this, AppPreferenceActivity.class);
+            startActivity(intent);
         }
         else if(id == R.id.action_about){
             AboutAppFragment aaf = new AboutAppFragment();

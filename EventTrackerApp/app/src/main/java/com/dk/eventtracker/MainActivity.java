@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FlowManager.init(new FlowConfig.Builder(this).build());
 
         MainScreenFragment msf = new MainScreenFragment();
+        mFragmentManager.popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
         FragmentStarter.StartNewFragment(msf, this, 0);
 
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
@@ -121,8 +122,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            // #TODO Napraviti "postavke" i OnClick na "postavke" - u postavkama reset podataka
-            // #TODO Napraviti i u postavkama omoguciti visejezicnost
             Intent intent = new Intent(this, AppPreferenceActivity.class);
             startActivity(intent);
         }

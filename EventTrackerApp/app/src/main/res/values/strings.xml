@@ -45,10 +45,15 @@
     <string name="drawer_logout">Odjava</string>
     <string name="personal_general">Privatno</string>
     <string name="drawer_personal">Privatni događaji</string>
-    <string name="app_lang_pref">Željeni jezik aplikacije</string>
+    <string name="app_lang_pref">Jezik aplikacijskog sučelja</string>
     <string name="app_pref_load_default_data">Koristiti samo defaultne podatke</string>
     <string name="login_good">Uspješna prijava!!!</string>
     <string name="login_bad">Pogrešno korisničko ime ili lozinka!</string>
+
+    <string name="bad_input">Nevaljan unos!</string>
+    <string name="bad_date_format">Krivi format datuma! (dd/mm)</string>
+    <string name="invalid_date">Nepostojeći datum!</string>
+    <string name="name_alr_exist">Naziv već postoji!</string>
 
     <string name="about_app_title">O aplikaciji</string>
     <string name="add_birthday_title">Dodaj rođendan</string>
@@ -63,5 +68,6 @@
     <string name="time_till_event_title">Vrijeme do događaja</string>
     <string name="personal_event_title">Privatni događaji</string>
     <string name="upcoming_events_title">Uskoro</string>
+    <string name="added_event">Događaj uspješno dodan!</string>
 
 </resources>
