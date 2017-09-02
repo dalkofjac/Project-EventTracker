@@ -14,7 +14,7 @@ import java.util.Locale;
 public class Util {
     public void setLanguage(Context context){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String lang = preferences.getString("pref_lang", "en");
+        String lang = preferences.getString("pref_lang", "hr");
 
         Configuration config = new Configuration(context.getResources().getConfiguration());
         config.setLocale(new Locale(lang));
