@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutsHolder"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/topLayout">
+
+            <TextView
+                android:text="@string/reg_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_reg_main"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textStyle="normal|bold"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:text="@string/reg_detail_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_reg_details"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/middleLayout">
+
+            <ImageView
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/thin_line"
+                android:id="@+id/thin_line_1"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:text="@string/reg_details_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_reg_details_2"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editText_reg_name"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorPrimaryLight"
+                android:hint="@string/reg_name" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editText_reg_surname"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorPrimaryLight"
+                android:hint="@string/reg_surname" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editText_reg_email"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorPrimaryLight"
+                android:hint="@string/reg_email" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editText_reg_username"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorPrimaryLight"
+                android:hint="@string/reg_username" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/editText_reg_password"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorPrimaryLight"
+                android:inputType="textPassword"
+                android:hint="@string/reg_password" />
+
+            <ImageView
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/thin_line"
+                android:id="@+id/thin_line_2"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/bottomLayout">
+
+            <Button
+                android:text="@string/reg_button"
+                android:id="@+id/button_register"
+                android:elevation="0dp"
+                android:background="@color/colorAccent"
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:fontFamily="sans-serif-medium"
+                style="@android:style/Widget.Button"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"
+                android:textStyle="normal|bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

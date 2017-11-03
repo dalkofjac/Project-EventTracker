@@ -71,4 +71,15 @@
     <string name="upcoming_events_title">Coming soon</string>
     <string name="added_event">Event successfully added!</string>
 
+    <string name="reg_main">Registration</string>
+    <string name="reg_detail_1">Make an account in application, it is free!</string>
+    <string name="reg_details_2">Please type in your info:</string>
+    <string name="reg_button">Register</string>
+    <string name="reg_name">Your name...</string>
+    <string name="reg_surname">Your username...</string>
+    <string name="reg_email">Your email...</string>
+    <string name="reg_username">Your username...</string>
+    <string name="reg_password">Your password...</string>
+    <string name="drawer_registration">Sign in</string>
+
 </resources>

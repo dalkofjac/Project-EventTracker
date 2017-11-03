@@ -70,4 +70,15 @@
     <string name="upcoming_events_title">Uskoro</string>
     <string name="added_event">Događaj uspješno dodan!</string>
 
+    <string name="reg_main">Registracija</string>
+    <string name="reg_detail_1">Besplatno se registrirajte u aplikaciju već sada!</string>
+    <string name="reg_details_2">Molimo unesite svoje podatke:</string>
+    <string name="reg_button">Registriraj me</string>
+    <string name="reg_name">Upišite ime...</string>
+    <string name="reg_surname">Upišite prezime...</string>
+    <string name="reg_email">Upišite email...</string>
+    <string name="reg_username">Upišite username...</string>
+    <string name="reg_password">Upišite password...</string>
+    <string name="drawer_registration">Registracija</string>
+
 </resources>

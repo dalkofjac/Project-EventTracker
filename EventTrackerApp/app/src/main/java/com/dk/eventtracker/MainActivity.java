@@ -28,6 +28,7 @@ import com.dk.eventtracker.fragments.BirthdaysFragment;
 import com.dk.eventtracker.fragments.HolidaysFragment;
 import com.dk.eventtracker.fragments.MainScreenFragment;
 import com.dk.eventtracker.fragments.OtherEventsFragment;
+import com.dk.eventtracker.fragments.RegisterFragment;
 import com.dk.eventtracker.fragments.UpcomingEventsFragment;
 import com.dk.eventtracker.helpers.FragmentStarter;
 import com.dk.eventtracker.helpers.Util;
@@ -158,6 +159,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_other) {
             OtherEventsFragment oef = new OtherEventsFragment();
             FragmentStarter.StartNewFragment(oef, this, 1);
+
+        } else if (id == R.id.nav_reg) {
+            RegisterFragment ref = new RegisterFragment();
+            FragmentStarter.StartNewFragment(ref, this, 1);
 
         } else if (id == R.id.nav_login) {
             Intent intent = new Intent(this, LoginActivity.class);
