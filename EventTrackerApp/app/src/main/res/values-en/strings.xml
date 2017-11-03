@@ -81,5 +81,8 @@
     <string name="reg_username">Your username...</string>
     <string name="reg_password">Your password...</string>
     <string name="drawer_registration">Sign in</string>
+    <string name="toast_good_reg">Successful registration!</string>
+    <string name="toast_bad_reg">Bad input!</string>
+
 
 </resources>

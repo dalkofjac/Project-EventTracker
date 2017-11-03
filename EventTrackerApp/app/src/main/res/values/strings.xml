@@ -80,5 +80,7 @@
     <string name="reg_username">Upišite username...</string>
     <string name="reg_password">Upišite password...</string>
     <string name="drawer_registration">Registracija</string>
+    <string name="toast_good_reg">Uspješna registracija!</string>
+    <string name="toast_bad_reg">Pogrešan unos!</string>
 
 </resources>
