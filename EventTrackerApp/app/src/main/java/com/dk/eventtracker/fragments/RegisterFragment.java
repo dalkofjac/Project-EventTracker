@@ -39,6 +39,9 @@ public class RegisterFragment extends Fragment {
     private String fragmentTitle;
     private String goodReg;
     private String badReg;
+    private String userNameExists;
+    private String errorMsg;
+    private String serverResponse;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_registration,container,false);
@@ -47,6 +50,8 @@ public class RegisterFragment extends Fragment {
         fragmentTitle = getResources().getString(R.string.drawer_registration);
         goodReg = getResources().getString(R.string.toast_good_reg);
         badReg = getResources().getString(R.string.toast_bad_reg);
+        userNameExists = getResources().getString(R.string.toast_user_exists_reg);
+        errorMsg = getResources().getString(R.string.toast_error_reg);
 
         return view;
     }
@@ -60,8 +65,16 @@ public class RegisterFragment extends Fragment {
     public void onRegisterButtonClicked(){
         if(inputCheck() == true){
             sendData();
-            getActivity().onBackPressed();
-            Toast.makeText(this.getActivity().getApplicationContext(),goodReg,Toast.LENGTH_LONG).show();
+            if(serverResponse.equals("pass")){
+                getActivity().onBackPressed();
+                Toast.makeText(this.getActivity().getApplicationContext(),goodReg,Toast.LENGTH_LONG).show();
+            }
+            else if(serverResponse.equals("stop")){
+                Toast.makeText(this.getActivity().getApplicationContext(),userNameExists,Toast.LENGTH_LONG).show();
+            }
+            else{
+                Toast.makeText(this.getActivity().getApplicationContext(),errorMsg,Toast.LENGTH_LONG).show();
+            }
         }
         else{
             regName.setText("");
@@ -88,6 +101,9 @@ public class RegisterFragment extends Fragment {
                 || regPassword.getText().length()> 20){
             return false;
         }
+        else if(checkForIllegalChars()==false){
+            return false;
+        }
         else {
             return true;
         }
@@ -97,9 +113,23 @@ public class RegisterFragment extends Fragment {
                 regSurname.getText().toString(), regEmail.getText().toString(),
                 regUsername.getText().toString(), regPassword.getText().toString());
         try{
-            userAdder.execute();
+            serverResponse = userAdder.execute().get().toString();
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+    private boolean checkForIllegalChars(){
+        String[] badChars = new String[]{" ", "/", "#", "="};
+        for(int i=0;i<badChars.length;i++){
+            if(regUsername.getText().toString().contains(badChars[i])|| regPassword.getText().toString().contains(badChars[i])||
+                    regName.getText().toString().contains(badChars[i])|| regSurname.getText().toString().contains(badChars[i])||
+                    regEmail.getText().toString().contains(badChars[i])){
+                return false;
+            }
+        }
+        if(!regEmail.getText().toString().contains("@")){
+            return false;
+        }
+        return true;
     }
 }

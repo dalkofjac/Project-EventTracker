@@ -82,5 +82,7 @@
     <string name="drawer_registration">Registracija</string>
     <string name="toast_good_reg">Uspješna registracija!</string>
     <string name="toast_bad_reg">Pogrešan unos!</string>
+    <string name="toast_user_exists_reg">Username već postoji!</string>
+    <string name="toast_error_reg">Došlo je do pogreške, pokušajte ponovo!</string>
 
 </resources>

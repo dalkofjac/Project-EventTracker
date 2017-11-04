@@ -15,13 +15,14 @@ import java.io.IOException;
  * Created by Dalibor on 3.11.2017..
  */
 
-public class UserAdder extends AsyncTask<String, Void, Void> {
-    final String queryId = "#";
+public class UserAdder extends AsyncTask<String, Void, String> {
     String regName;
     String regSurame;
     String regEmail;
     String regUsername;
     String regPassword;
+
+    String msg;
 
     public UserAdder(String regName, String regSurame, String regEmail, String regUsername, String regPassword) {
         this.regName = regName;
@@ -31,11 +32,11 @@ public class UserAdder extends AsyncTask<String, Void, Void> {
         this.regPassword = regPassword;
     }
 
-    private void addNewUser(){
+    private String addNewUser(){
+        String res = "";
         try {
             OkHttpClient client = new OkHttpClient();
             RequestBody requestBody = new FormEncodingBuilder()
-                    .add("queryId", queryId)
                     .add("regName", regName)
                     .add("regSurname", regSurame)
                     .add("regEmail", regEmail)
@@ -49,6 +50,7 @@ public class UserAdder extends AsyncTask<String, Void, Void> {
                     .build();
 
             Response response = client.newCall(request).execute();
+            res = response.body().string();
 
             if (!response.isSuccessful()) {
                 throw new IOException("Unexpected code " + response);
@@ -56,15 +58,16 @@ public class UserAdder extends AsyncTask<String, Void, Void> {
         }catch (IOException e){
             e.printStackTrace();
         }
+        return res;
     }
 
     @Override
-    protected Void doInBackground(String... params) {
+    protected String doInBackground(String... params) {
         try {
-            addNewUser();
+            msg = addNewUser();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return null;
+        return msg;
     }
 }
