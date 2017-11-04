@@ -71,9 +71,7 @@
     <string name="upcoming_events_title">Coming soon</string>
     <string name="added_event">Event successfully added!</string>
 
-    <string name="reg_main">Registration</string>
     <string name="reg_detail_1">Make an application account, its free!</string>
-    <string name="reg_details_2">Please type in your info:</string>
     <string name="reg_button">Register</string>
     <string name="reg_name">Your name...</string>
     <string name="reg_surname">Your surname...</string>

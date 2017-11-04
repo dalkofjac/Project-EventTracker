@@ -34,11 +34,12 @@
     <item android:title="@string/drawer_user_op">
         <menu>
             <item
-                android:id="@+id/nav_reg"
-                android:title="@string/drawer_registration" />
-            <item
                 android:id="@+id/nav_login"
                 android:title="@string/drawer_login" />
+            <item
+                android:id="@+id/nav_reg"
+                android:title="@string/drawer_registration" />
+
         </menu>
     </item>
 
